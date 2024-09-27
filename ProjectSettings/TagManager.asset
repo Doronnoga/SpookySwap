@@ -3,18 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Trap
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Goal
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ghost
+  - Skeleton
+  - Body
+  - Trap
   - 
   - 
   - 
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1644964433
+    locked: 0
+  - name: PlayerLevel
+    uniqueID: 469732789
+    locked: 0
+  - name: Foreground
+    uniqueID: 4265389939
     locked: 0

@@ -3,19 +3,19 @@ using UnityEngine.InputSystem;
 
 namespace PlayerMovementScript
 {
-    public class PlayerMovement : MonoBehaviour
+    public abstract class PlayerMovement : MonoBehaviour
     {
-        private PlayerControls controls;
-        private Vector2 moveDirection = Vector2.zero;
+        protected PlayerControls controls;
+        protected Vector2 moveDirection = Vector2.zero;
 
         [SerializeField]
-        private Rigidbody2D rb;
+        protected Rigidbody2D rb;
 
         [SerializeField]
-        private float moveSpeed = 5f;
+        public float moveSpeed = 5f;
 
         [SerializeField]
-        private float jumpForce = 5f;
+        public float jumpForce = 5f;
 
         private void Awake()
         {
@@ -31,30 +31,30 @@ namespace PlayerMovementScript
 
             // Bind the Interact action
             controls.Player.Interact.performed += ctx => Interact();
-        }
+        }//dont touch
 
         private void OnEnable()
         {
             controls.Player.Enable();
             Debug.Log("Player Controls Enabled");
-        }
+        }//dont touch
 
         private void OnDisable()
         {
             controls.Player.Disable();
             Debug.Log("Player Controls Disabled");
-        }
+        }//dont touch
 
-        private void Start()
+        protected virtual void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             if (rb == null)
             {
                 Debug.LogError("Rigidbody2D component missing from this GameObject.");
             }
-        }
+        }//can change between players
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             if (rb != null)
             {
@@ -62,20 +62,20 @@ namespace PlayerMovementScript
                 rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // Maintain vertical velocity
                 Debug.Log("MOVING");
             }
-        }
+        }//can change between players
 
-        private void Jump()
+        protected virtual void Jump()
         {
             if (rb != null && Mathf.Abs(rb.velocity.y) < 0.01f) // Check if the player is on the ground
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 Debug.Log("Jumped");
             }
-        }
+        }//only on some players-- should it be here?
 
-        private void Interact()
+        protected virtual void Interact()
         {
             Debug.Log("Interacted");
-        }
+        }//all cana interact
     }
 }

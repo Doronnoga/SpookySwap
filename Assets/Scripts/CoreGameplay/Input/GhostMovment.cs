@@ -1,42 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlayerMovementScript;
 
 namespace PlayerMovementScript
 {
-    public class GhostMovement : MonoBehaviour
+    public class GhostMovement : PlayerMovement
     {
-        private PlayerControls controls;
-        private Vector2 moveDirection = Vector2.zero;
-
-        [SerializeField]
-        private Rigidbody2D rb;
-
-        [SerializeField]
-        private float moveSpeed = 5f;
-
-        private void Awake()
-        {
-           
-            controls = new PlayerControls();
-
-            
-            controls.Ghost.Move.performed += ctx => moveDirection = ctx.ReadValue<Vector2>();
-            controls.Ghost.Move.canceled += ctx => moveDirection = Vector2.zero;
-        }
-
-        private void OnEnable()
-        {
-            controls.Ghost.Enable();
-            Debug.Log("Ghost Controls Enabled");
-        }
-
-        private void OnDisable()
-        {
-            controls.Ghost.Disable();
-            Debug.Log("Ghost Controls Disabled");
-        }
-
-        private void Start()
+        protected override void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             if (rb == null)
@@ -47,11 +17,11 @@ namespace PlayerMovementScript
             rb.gravityScale = 0;//make sure ghost is floaty
         }
 
-        private void FixedUpdate()
+        protected override void FixedUpdate()
         {
             if (rb != null)
             {
-                rb.velocity = new Vector2(0, moveDirection.y * moveSpeed); // Only move up and down
+                rb.velocity = new Vector2(moveDirection.x* moveSpeed, moveDirection.y * moveSpeed); // Only move up and down
                 Debug.Log("Ghost MOVING");
             }
         }

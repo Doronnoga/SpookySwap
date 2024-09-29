@@ -14,7 +14,7 @@ namespace GoalClass
 
 
         // Called when another object with a Collider2D marked as "Is Trigger" enters this object's Collider2D
-        public virtual void OnTriggerEnter2D(Collider2D other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("Triggered by: " + other.gameObject.name);
 

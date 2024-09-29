@@ -28,6 +28,8 @@ namespace LevelManager
         private PlayerMovement skeletonMovement;
         [SerializeField]
         private PlayerMovement bodyMovement;
+        [SerializeField]
+        public bool goalsWon = false;
 
         public void checkIfNull()
         {
@@ -73,13 +75,25 @@ namespace LevelManager
             }
         }
 
-        void Start()
+        private void checkForWin() 
         {
-            Debug.Log("Level manager alive");
-            checkIfNull();
-            ActivatePlayer(Ghost);
+            foreach (var goal in goalList)
+            {
+                if (!goal.win)
+                {
+                    Debug.Log($"{goal} is win.");
+                    goalsWon = true;
+                    break;
+                }
+                else 
+                {
+                    Debug.Log($"{goal} is lose.");
+                    goalsWon = false;
+                }
+            }
         }
-        private void Update()
+
+        private void checkInput() 
         {
             if (Input.GetKeyDown(KeyCode.Alpha1)) // Switch to Ghost
             {
@@ -98,6 +112,19 @@ namespace LevelManager
                 Debug.Log("BODY ACTIVATED");
 
             }
+        }
+
+        void Start ()
+        {
+            Debug.Log("Level manager alive");
+            checkIfNull();
+            ActivatePlayer(Ghost);
+        }
+
+        private void Update ()
+        {
+            checkInput();
+            checkForWin();
         }
     }
 }

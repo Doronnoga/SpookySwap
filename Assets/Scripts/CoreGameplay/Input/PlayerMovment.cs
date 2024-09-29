@@ -42,6 +42,7 @@ namespace PlayerMovementScript
         private void OnDisable()
         {
             controls.Player.Disable();
+            rb.velocity = Vector2.zero;
             Debug.Log("Player Controls Disabled");
         }//dont touch
 

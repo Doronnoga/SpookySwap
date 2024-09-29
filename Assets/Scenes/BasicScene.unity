@@ -122,6 +122,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &482478419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1399215918970673867, guid: e3ab1ac71fd834341aaddec7ad2ddac5, type: 3}
+  m_PrefabInstance: {fileID: 1962244135927408340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c214d1f2823d6f448bad9c748f6ba685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &575086584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7034868584393325472, guid: f159375a35106b540ae82c11317be036, type: 3}
+  m_PrefabInstance: {fileID: 6455243800036278287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c214d1f2823d6f448bad9c748f6ba685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968505984
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,9 +310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalList:
-  - 
-  - 
-  - 
+  - {fileID: 2035165494}
+  - {fileID: 482478419}
+  - {fileID: 575086584}
   sceneName: BasicScene
 --- !u!4 &2024405896
 Transform:
@@ -307,6 +329,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2035165494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2390411659707141740, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
+  m_PrefabInstance: {fileID: 6069162978189061642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c214d1f2823d6f448bad9c748f6ba685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &96963168104521504
 PrefabInstance:
   m_ObjectHideFlags: 0

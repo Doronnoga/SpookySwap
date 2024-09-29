@@ -4,13 +4,15 @@ using UnityEngine;
 
 namespace GoalClass
 {
-    public class GoalClass : MonoBehaviour
+    public class Goal : MonoBehaviour
     {
         [SerializeField]
         private string goalName = "";
 
         [SerializeField]
         protected string playerTag = "";
+        [SerializeField]
+        protected bool goalCorrect = false;
 
         public virtual void OnTriggerEnter2D(Collider2D other)
         {

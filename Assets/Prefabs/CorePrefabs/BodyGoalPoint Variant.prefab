@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3754135247477045379, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3c0ec5caf85a94445bd12068a7c7569d, type: 2}
     - target: {fileID: 5768714627173365035, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
       propertyPath: m_Name
       value: BodyGoalPoint Variant

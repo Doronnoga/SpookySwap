@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoalClass;
 using PlayerMovementScript;
+using UnityEngine.UI;
 
 namespace LevelManager
 {
@@ -30,6 +31,13 @@ namespace LevelManager
         private PlayerMovement bodyMovement;
         [SerializeField]
         public bool goalsWon = false;
+
+        [SerializeField]
+        public Canvas uiCanvas;
+        [SerializeField]
+        public Canvas endScreenCanvas;
+        [SerializeField]
+        List<Button> activePlayerButtonList = new List<Button>();
 
         public void checkIfNull()
         {
@@ -59,19 +67,28 @@ namespace LevelManager
             ghostMovement.enabled = false;
             bodyMovement.enabled = false;
             skeletonMovement.enabled = false;
+            for (int i = 0; i < activePlayerButtonList.Count; i++) 
+            {
+                activePlayerButtonList[i].interactable = false;
+            }
+
+
 
             // compare tag
             if (player.tag.Equals("Ghost"))
             {
                 ghostMovement.enabled = true;
+                activePlayerButtonList[0].interactable = true;
             }
             else if (player.tag.Equals("Body"))
             {
                 bodyMovement.enabled = true;
+                activePlayerButtonList[2].interactable = true;
             }
             else if (player.tag.Equals("Skeleton"))
             {
                 skeletonMovement.enabled = true;
+                activePlayerButtonList[1].interactable = true;
             }
         }
 

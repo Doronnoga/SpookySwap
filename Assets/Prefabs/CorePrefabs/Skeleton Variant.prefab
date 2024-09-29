@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.54
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.76
+      value: -1.6600001
       objectReference: {fileID: 0}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Mass
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Constraints
@@ -96,13 +96,25 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 8942812376260589618, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942812376260589618, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942812376260589618, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Color.r
+      value: 0.504055
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2467814833109763941, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
-      insertIndex: 4
+      insertIndex: -1
       addedObject: {fileID: 6146282596375825249}
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       insertIndex: -1
@@ -126,8 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 6
+  jumpForce: 8
 --- !u!114 &9013768421980936896
 MonoBehaviour:
   m_ObjectHideFlags: 0

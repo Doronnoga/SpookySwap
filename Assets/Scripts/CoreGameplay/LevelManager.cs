@@ -30,7 +30,7 @@ namespace LevelManager
         [SerializeField]
         private PlayerMovement bodyMovement;
         [SerializeField]
-        public bool goalsWon = false;
+        public bool beenWon = false;
 
         [SerializeField]
         public Canvas uiCanvas;
@@ -72,8 +72,6 @@ namespace LevelManager
                 activePlayerButtonList[i].interactable = false;
             }
 
-
-
             // compare tag
             if (player.tag.Equals("Ghost"))
             {
@@ -92,22 +90,16 @@ namespace LevelManager
             }
         }
 
-        private void checkForWin() 
+        private void disablePlayers() 
         {
-            foreach (var goal in goalList)
+            //turn all off
+            ghostMovement.enabled = false;
+            bodyMovement.enabled = false;
+            skeletonMovement.enabled = false;
+            for (int i = 0; i < activePlayerButtonList.Count; i++)
             {
-                if (!goal.win)
-                {
-                    Debug.Log($"{goal} is win.");
-                    goalsWon = true;
-                    break;
-                }
-                else 
-                {
-                    Debug.Log($"{goal} is lose.");
-                    goalsWon = false;
-                }
-            }
+                activePlayerButtonList[i].interactable = false;
+            }//turn off interaction button
         }
 
         private void checkInput() 
@@ -131,17 +123,59 @@ namespace LevelManager
             }
         }
 
+        private void checkForWin()
+        {
+            int goalsWon = 0;
+
+            // count how many been won
+            foreach (var goal in goalList)
+            {
+                if (goal.win)
+                {
+                    goalsWon++;
+                }
+            }
+
+            // Check if all goals have been won
+            if (goalsWon == goalList.Count)
+            {
+                if (!beenWon) 
+                {
+                    beenWon = true;
+                    Debug.Log("LEVEL WON.");
+                    disablePlayers();
+                    endScreenCanvas.enabled = true;
+
+                    // Enter Win event here- canvas or whatever
+                    // SceneManager.LoadScene("NextSceneName");
+                }
+            }
+            else
+            {
+                if (beenWon) // Reset 
+                {
+                    beenWon = false;
+                    Debug.Log($"KEEP GOING. Goals won: {goalsWon}/{goalList.Count}");
+                }
+            }
+        }
+
+
         void Start ()
         {
             Debug.Log("Level manager alive");
+            endScreenCanvas.enabled = false;
             checkIfNull();
             ActivatePlayer(Ghost);
         }
 
         private void Update ()
         {
-            checkInput();
-            checkForWin();
+            if (!beenWon) //if level is not won check stuff
+            {
+              checkInput();
+              checkForWin();
+            }
         }
     }
 }

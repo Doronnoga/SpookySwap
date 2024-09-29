@@ -22,7 +22,6 @@ namespace PlayerMovementScript
             if (rb != null)
             {
                 rb.velocity = new Vector2(moveDirection.x* moveSpeed, moveDirection.y * moveSpeed); // Only move up and down
-                Debug.Log("Ghost MOVING");
             }
         }
     }

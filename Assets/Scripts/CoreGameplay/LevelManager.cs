@@ -16,7 +16,7 @@ namespace LevelManager
         {
             if (goalList.Contains(null))
             {
-                Debug.Log("THE LEVEL MANAGER IS MISSING A GOAL: please give it a goal.");
+                Debug.LogWarning("THE LEVEL MANAGER IS MISSING A GOAL: please give it a goal.");
             }
             else { Debug.Log("Levelmanager Goal list okay"); }
         }

@@ -12,32 +12,9 @@ namespace GoalClass
         [SerializeField]
         protected string playerTag = "";
 
-
-        // Called when another object with a Collider2D marked as "Is Trigger" enters this object's Collider2D
-        public void OnTriggerEnter2D(Collider2D other)
+        public virtual void OnTriggerEnter2D(Collider2D other)
         {
             Debug.Log("Triggered by: " + other.gameObject.name);
-
-            // Check for different tags and handle them
-            if (other.gameObject.CompareTag("Ghost"))
-            {
-                Debug.Log("Ghost touched a goal!");
-            }
-
-            if (other.gameObject.CompareTag("Skeleton"))
-            {
-                Debug.Log("Skeleton touched a goal!");
-            }
-
-            if (other.gameObject.CompareTag("Body"))
-            {
-                Debug.Log("Body touched a goal!");
-            }
-        }
-
-        // Called every frame while another object is within this object's Collider2D (trigger)
-        public virtual void OnTriggerStay2D(Collider2D other)
-        {
             // Check if the object inside the trigger has the correct playerTag
             if (other.gameObject.CompareTag(playerTag))
             {

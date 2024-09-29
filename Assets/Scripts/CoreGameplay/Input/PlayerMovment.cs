@@ -36,7 +36,7 @@ namespace PlayerMovementScript
         private void OnEnable()
         {
             controls.Player.Enable();
-            Debug.Log("Player Controls Enabled");
+            Debug.Log("Player Controls Enabled (PlayermovmentScript)");
         }//dont touch
 
         private void OnDisable()
@@ -60,7 +60,6 @@ namespace PlayerMovementScript
             {
                 // Apply movement
                 rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // Maintain vertical velocity
-                Debug.Log("MOVING");
             }
         }//can change between players
 
@@ -69,7 +68,6 @@ namespace PlayerMovementScript
             if (rb != null && Mathf.Abs(rb.velocity.y) < 0.01f) // Check if the player is on the ground
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                Debug.Log("Jumped");
             }
         }//only on some players-- should it be here?
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoalClass;
 using PlayerMovementScript;
+using UnityEngine.UI;
 
 namespace LevelManager
 {
@@ -28,6 +29,15 @@ namespace LevelManager
         private PlayerMovement skeletonMovement;
         [SerializeField]
         private PlayerMovement bodyMovement;
+        [SerializeField]
+        public bool beenWon = false;
+
+        [SerializeField]
+        public GameObject uiCanvas;
+        [SerializeField]
+        public GameObject endScreenCanvas;
+        [SerializeField]
+        List<Button> activePlayerButtonList = new List<Button>();
 
         public void checkIfNull()
         {
@@ -57,29 +67,42 @@ namespace LevelManager
             ghostMovement.enabled = false;
             bodyMovement.enabled = false;
             skeletonMovement.enabled = false;
+            for (int i = 0; i < activePlayerButtonList.Count; i++) 
+            {
+                activePlayerButtonList[i].interactable = false;
+            }
 
             // compare tag
             if (player.tag.Equals("Ghost"))
             {
                 ghostMovement.enabled = true;
+                activePlayerButtonList[0].interactable = true;
             }
             else if (player.tag.Equals("Body"))
             {
                 bodyMovement.enabled = true;
+                activePlayerButtonList[2].interactable = true;
             }
             else if (player.tag.Equals("Skeleton"))
             {
                 skeletonMovement.enabled = true;
+                activePlayerButtonList[1].interactable = true;
             }
         }
 
-        void Start()
+        private void disablePlayers() 
         {
-            Debug.Log("Level manager alive");
-            checkIfNull();
-            ActivatePlayer(Ghost);
+            //turn all off
+            ghostMovement.enabled = false;
+            bodyMovement.enabled = false;
+            skeletonMovement.enabled = false;
+            for (int i = 0; i < activePlayerButtonList.Count; i++)
+            {
+                activePlayerButtonList[i].interactable = false;
+            }//turn off interaction button
         }
-        private void Update()
+
+        private void checkInput() 
         {
             if (Input.GetKeyDown(KeyCode.Alpha1)) // Switch to Ghost
             {
@@ -97,6 +120,61 @@ namespace LevelManager
                 ActivatePlayer(Body);
                 Debug.Log("BODY ACTIVATED");
 
+            }
+        }
+
+        private void checkForWin()
+        {
+            int goalsWon = 0;
+
+            // count how many been won
+            foreach (var goal in goalList)
+            {
+                if (goal.win)
+                {
+                    goalsWon++;
+                }
+            }
+
+            // Check if all goals have been won
+            if (goalsWon == goalList.Count)
+            {
+                if (!beenWon) 
+                {
+                    beenWon = true;
+                    Debug.Log("LEVEL WON.");
+                    disablePlayers();
+                    endScreenCanvas.SetActive(true);
+
+                    // Enter Win event here- canvas or whatever
+                    // SceneManager.LoadScene("NextSceneName");
+                }
+            }
+            else
+            {
+                if (beenWon) // Reset 
+                {
+                    beenWon = false;
+                    Debug.Log($"KEEP GOING. Goals won: {goalsWon}/{goalList.Count}");
+                }
+            }
+        }
+
+
+        void Start ()
+        {
+            Debug.Log("Level manager alive");
+            endScreenCanvas.SetActive(false);
+            checkIfNull();
+            ActivatePlayer(Ghost);
+        }
+
+        private void Update ()
+        {
+            if (!beenWon) //if level is not won check stuff
+            {
+              checkInput();
+              checkForWin();
             }
         }
     }

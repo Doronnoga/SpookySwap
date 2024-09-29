@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.04
+      value: -5.21
       objectReference: {fileID: 0}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7
+      value: -1.6800001
       objectReference: {fileID: 0}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -92,13 +92,17 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8942812376260589618, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Color.g
+      value: 0.032849967
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2467814833109763941, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
-      insertIndex: 4
+      insertIndex: -1
       addedObject: {fileID: 8555496216152525724}
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       insertIndex: -1

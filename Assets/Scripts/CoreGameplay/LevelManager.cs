@@ -33,9 +33,9 @@ namespace LevelManager
         public bool beenWon = false;
 
         [SerializeField]
-        public Canvas uiCanvas;
+        public GameObject uiCanvas;
         [SerializeField]
-        public Canvas endScreenCanvas;
+        public GameObject endScreenCanvas;
         [SerializeField]
         List<Button> activePlayerButtonList = new List<Button>();
 
@@ -144,7 +144,7 @@ namespace LevelManager
                     beenWon = true;
                     Debug.Log("LEVEL WON.");
                     disablePlayers();
-                    endScreenCanvas.enabled = true;
+                    endScreenCanvas.SetActive(true);
 
                     // Enter Win event here- canvas or whatever
                     // SceneManager.LoadScene("NextSceneName");
@@ -164,7 +164,7 @@ namespace LevelManager
         void Start ()
         {
             Debug.Log("Level manager alive");
-            endScreenCanvas.enabled = false;
+            endScreenCanvas.SetActive(false);
             checkIfNull();
             ActivatePlayer(Ghost);
         }

@@ -285,9 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c214d1f2823d6f448bad9c748f6ba685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!223 &523172647 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 3148549901314557617, guid: 330c521360695ae449aa8f285a7ddbb8, type: 3}
+--- !u!1 &523172644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5916062028321531700, guid: 330c521360695ae449aa8f285a7ddbb8, type: 3}
   m_PrefabInstance: {fileID: 4312686916134008353}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &575086584 stripped
@@ -1987,7 +1987,7 @@ PrefabInstance:
     - target: {fileID: 7182429565218289107, guid: b66c7aad4d9051947aa9b06f374f3b88, type: 3}
       propertyPath: uiCanvas
       value: 
-      objectReference: {fileID: 1811160548}
+      objectReference: {fileID: 1811160545}
     - target: {fileID: 7182429565218289107, guid: b66c7aad4d9051947aa9b06f374f3b88, type: 3}
       propertyPath: bodyMovement
       value: 
@@ -1999,7 +1999,7 @@ PrefabInstance:
     - target: {fileID: 7182429565218289107, guid: b66c7aad4d9051947aa9b06f374f3b88, type: 3}
       propertyPath: endScreenCanvas
       value: 
-      objectReference: {fileID: 523172647}
+      objectReference: {fileID: 523172644}
     - target: {fileID: 7182429565218289107, guid: b66c7aad4d9051947aa9b06f374f3b88, type: 3}
       propertyPath: skeletonMovement
       value: 

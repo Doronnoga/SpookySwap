@@ -33,7 +33,12 @@ namespace GoalClass
             }
         }
 
-        // Start is called before the first frame update
+        public virtual void OnTriggerExit2D(Collider2D other)
+        {
+                Debug.Log($"{other.gameObject.tag} left goal!");
+                win = false;
+        }
+
         void Start()
         {
             // Initialization logic (if any)

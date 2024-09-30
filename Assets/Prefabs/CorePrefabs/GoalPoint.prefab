@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
+  m_Offset: {x: 0, y: 0.17}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.46, y: 1.65}
+  m_Size: {x: 1.49, y: 1.37}
   m_EdgeRadius: 0
 --- !u!50 &2307331953645039235
 Rigidbody2D:
@@ -176,6 +176,7 @@ MonoBehaviour:
   goalName: GhostGoal
   playerTag: Ghost
   goalCorrect: 0
+  win: 0
 --- !u!114 &6253193232225339033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.71
+  m_PointLightInnerRadius: 0.10737488
   m_PointLightOuterRadius: 2.59
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0

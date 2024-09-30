@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c8b260afb43bd458617b88ee5b6e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 7979194424066382278}
   moveSpeed: 6
   jumpForce: 8
 --- !u!114 &9013768421980936896
@@ -190,3 +190,8 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!50 &7979194424066382278 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+  m_PrefabInstance: {fileID: 1678214306936051726}
+  m_PrefabAsset: {fileID: 0}

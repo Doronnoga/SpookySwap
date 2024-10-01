@@ -1,28 +1,49 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PlayerMovementScript;
 
 namespace PlayerMovementScript
 {
     public class GhostMovement : PlayerMovement
     {
+        [SerializeField]
+        protected float acceleration = 5f; // Control how quickly the ghost speeds up
+        [SerializeField]
+        protected float deceleration = 3f; // Control how quickly the ghost slows down
+
         protected override void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             if (rb == null)
             {
-                Debug.LogError("Rigidbody2D component missing from this GameObject.");
+                Debug.LogError("Rigidbody2D component missing from ghost.");
             }
 
-            rb.gravityScale = 0;//make sure ghost is floaty
+            rb.gravityScale = 0;
         }
 
         protected override void FixedUpdate()
         {
             if (rb != null)
             {
-                rb.velocity = new Vector2(moveDirection.x* moveSpeed, moveDirection.y * moveSpeed); // Only move up and down
+                // Calculate target velocity based on input
+                Vector2 targetVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+
+                // Gradually accelerate towards the target velocity
+                rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, acceleration * Time.fixedDeltaTime);
+
+                // Apply deceleration if no input is detected
+                if (moveDirection == Vector2.zero)
+                {
+                    rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+                }
+
+                Debug.Log($"Ghost Velocity: {rb.velocity}");
             }
+        }
+
+        protected override void Jump()
+        {
+            Debug.Log("Ghosts don't jump!");
         }
     }
 }

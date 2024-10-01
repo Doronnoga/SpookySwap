@@ -9,12 +9,17 @@ namespace LevelManager
 {
     public class LevelManager : MonoBehaviour
     {
+        [Header("Scene name\n")]
         [SerializeField]
         public string sceneName = "";//name of connected scene
 
+        [Header("GOALS\n")]
         [SerializeField]
         List<Goal> goalList = new List<Goal>();
+        [SerializeField]
+        public bool beenWon = false;
 
+        [Header("PLAYERS\n")]
         [SerializeField]
         private GameObject Ghost;
         [SerializeField]
@@ -22,20 +27,19 @@ namespace LevelManager
         [SerializeField]
         private GameObject Body;
 
-
+        [Header("Player's MOVEMENT scripts\n")]
         [SerializeField]
         private PlayerMovement ghostMovement;
         [SerializeField]
         private PlayerMovement skeletonMovement;
         [SerializeField]
         private PlayerMovement bodyMovement;
-        [SerializeField]
-        public bool beenWon = false;
 
-        [SerializeField]
-        public GameObject uiCanvas;
+        [Header("Ui CANVAS and BUTTONS\n")]
         [SerializeField]
         public GameObject endScreenCanvas;
+        [SerializeField]
+        public GameObject uiCanvas;
         [SerializeField]
         List<Button> activePlayerButtonList = new List<Button>();
 

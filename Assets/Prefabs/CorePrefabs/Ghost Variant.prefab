@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Mass
-      value: 0.25
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_AngularDrag
@@ -130,8 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7118204497347211072}
-  moveSpeed: 5
-  jumpForce: 5
+  moveSpeed: 12
+  jumpForce: 0
+  acceleration: 2
+  deceleration: 1
 --- !u!114 &1488312961869571896
 MonoBehaviour:
   m_ObjectHideFlags: 0

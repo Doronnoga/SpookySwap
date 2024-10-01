@@ -4,13 +4,16 @@ using UnityEngine;
 using GoalClass;
 using PlayerMovementScript;
 using UnityEngine.UI;
+using Cinemachine;
+
 
 namespace LevelManager
 {
     public class LevelManager : MonoBehaviour
     {
         [Header("Scene name\n")]
-        [SerializeField]
+        [SerializeField] 
+        private CinemachineVirtualCamera virtualCamera; [SerializeField]
         public string sceneName = "";//name of connected scene
 
         [Header("GOALS\n")]
@@ -45,6 +48,10 @@ namespace LevelManager
 
         public void checkIfNull()
         {
+            if (virtualCamera == null)
+            {
+                Debug.LogError("Cinemachine Virtual Camera is not assigned!");
+            }
             if (goalList.Contains(null))
             {
                 Debug.LogError("THE LEVEL MANAGER IS MISSING A GOAL: please give it a goal.");
@@ -111,17 +118,20 @@ namespace LevelManager
             if (Input.GetKeyDown(KeyCode.Alpha1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);
+                changeCameraTarget(Ghost.transform);
                 Debug.Log("GHOST ACTIVATED");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2)) // Switch to Skeleton
             {
                 ActivatePlayer(Skeleton);
+                changeCameraTarget(Skeleton.transform);
                 Debug.Log("SKELETON ACTIVATED");
 
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3)) // Switch to Body
             {
                 ActivatePlayer(Body);
+                changeCameraTarget(Body.transform);
                 Debug.Log("BODY ACTIVATED");
 
             }
@@ -164,7 +174,14 @@ namespace LevelManager
             }
         }
 
-
+        private void changeCameraTarget(Transform targetTransform)
+        {
+            if (virtualCamera != null && targetTransform != null)
+            {
+                virtualCamera.Follow = targetTransform;
+                virtualCamera.LookAt = targetTransform;
+            }
+        }
         void Start ()
         {
             Debug.Log("Level manager alive");

@@ -22,7 +22,6 @@ public class Platform : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
-            Debug.LogWarning("IN AREA");
             playerInArea = true;
             if (!isBroken) 
             {
@@ -35,7 +34,6 @@ public class Platform : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
-            Debug.LogWarning("EXIT NOT IN AREA");
             playerInArea = false;
             if (isBroken) 
             {
@@ -54,7 +52,6 @@ public class Platform : MonoBehaviour
     {
         if (!playerInArea && isBroken)
         {
-            Debug.LogWarning("TRY APPEAR");
             animator.SetTrigger("Appear");
             isBroken = false;
         }

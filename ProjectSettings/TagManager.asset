@@ -9,6 +9,7 @@ TagManager:
   - Body
   - Skeleton
   - Goal
+  - Platform
   layers:
   - Default
   - TransparentFX

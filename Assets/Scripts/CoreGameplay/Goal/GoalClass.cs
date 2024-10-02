@@ -7,9 +7,6 @@ namespace GoalClass
     public class Goal : MonoBehaviour
     {
         [SerializeField]
-        private string goalName = "";
-
-        [SerializeField]
         protected string playerTag = "";
         [SerializeField]
         protected bool goalCorrect = false;

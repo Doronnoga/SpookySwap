@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1657956423123469258, guid: c38c247153a92d94e93b469e002f847d, type: 3}
       propertyPath: m_InstanceId
-      value: -129744
+      value: -141314
       objectReference: {fileID: 0}
     - target: {fileID: 5756508728507399316, guid: c38c247153a92d94e93b469e002f847d, type: 3}
       propertyPath: m_MaskInteraction
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8367957111238786069, guid: c38c247153a92d94e93b469e002f847d, type: 3}
       propertyPath: m_Name
-      value: InvisablePlatform Variant
+      value: InvisablePlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

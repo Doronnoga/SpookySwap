@@ -36,8 +36,6 @@ namespace PlayerMovementScript
                 {
                     rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
                 }
-
-                Debug.Log($"Ghost Velocity: {rb.velocity}");
             }
         }
 

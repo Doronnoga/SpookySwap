@@ -36,14 +36,12 @@ namespace PlayerMovementScript
         protected virtual void OnEnable()
         {
             controls.Player.Enable();
-            Debug.Log($"{this.GetType().Name} Controls Enabled");
         }
 
         protected virtual void OnDisable()
         {
             controls.Player.Disable();
             rb.velocity = Vector2.zero;
-            Debug.Log($"{this.GetType().Name} Controls Disabled");
         }
 
         protected virtual void Start()
@@ -69,7 +67,6 @@ namespace PlayerMovementScript
             if (rb != null && Mathf.Abs(rb.velocity.y) < 0.01f) // Check if the player is on the ground
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                Debug.Log($"{this.GetType().Name} Jumped");
             }
         }
 

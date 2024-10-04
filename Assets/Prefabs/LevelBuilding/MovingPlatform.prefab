@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8834954021207030561}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2697306999541145401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.05, y: 3.96, z: 0}
+  m_LocalPosition: {x: 2.18, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9049654147562551462}
   - component: {fileID: 1460934156796382713}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 2
+  duration: 5
 --- !u!1 &6587826926301148268
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2427961600052900220}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -131,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 6587826926301148268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.57, y: -0.96, z: 0}
+  m_LocalPosition: {x: -4.57, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146,8 +146,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 9049654147562551462}
     m_Modifications:
     - target: {fileID: 282114418725832605, guid: 58999c6a92111e748838970ca22f6958, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_InstanceId
+      value: -45732
       objectReference: {fileID: 0}
     - target: {fileID: 2404963356911272164, guid: 58999c6a92111e748838970ca22f6958, type: 3}
       propertyPath: m_Name
@@ -155,11 +155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3799585463016923682, guid: 58999c6a92111e748838970ca22f6958, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.12
+      value: -4.57
       objectReference: {fileID: 0}
     - target: {fileID: 3799585463016923682, guid: 58999c6a92111e748838970ca22f6958, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3799585463016923682, guid: 58999c6a92111e748838970ca22f6958, type: 3}
       propertyPath: m_LocalPosition.z

@@ -3,42 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using MovingPlatform;
 using Unity.VisualScripting;
+using ButtonClass;
 
 public class MovingPlatformsButton : MovingPlatforms
 {
     [Header("Button Controls")]
+    [SerializeField]
+    [Header("Button")]
+    private Button button;
+    [SerializeField]
     private bool isActivated = false;
-    [SerializeField]
-    private Collider2D buttonCollider;
-    [SerializeField]
-    protected string intendedTag = "";
+
     public void ActivatePlatform()
     {
         isActivated = true;
+        Debug.Log("Platform Activated");
     }
-    public void DeactivatePlatform() 
+
+    public void DeactivatePlatform()
     {
         isActivated = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        other = buttonCollider;
-        Debug.Log("Enter");
-
-        if (other.CompareTag(intendedTag))
-        { 
-          ActivatePlatform();
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        other = buttonCollider;
-        Debug.Log("Exit");
-        if (other == buttonCollider && other.CompareTag(intendedTag))
-        {
-            DeactivatePlatform();
-        } 
+        Debug.Log("Platform Deactivated");
     }
 
     protected override void movePlatform()
@@ -49,15 +34,17 @@ public class MovingPlatformsButton : MovingPlatforms
     void Start()
     {
         isActivated = false;
-        if (buttonCollider == null)
+
+        if (button != null)//on starts subscribe methods to event
         {
-            buttonCollider = GameObject.FindGameObjectWithTag("Button").GetComponent<Collider2D>();
+            button.OnButtonPressed += ActivatePlatform;
+            button.OnButtonReleased += DeactivatePlatform;
         }
     }
 
     void Update()
     {
-        if (isActivated) 
+        if (isActivated)
         {
             movePlatform();
         }

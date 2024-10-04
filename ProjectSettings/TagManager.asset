@@ -10,6 +10,7 @@ TagManager:
   - Skeleton
   - Goal
   - Platform
+  - Button
   layers:
   - Default
   - TransparentFX

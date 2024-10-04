@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatforms : MonoBehaviour
+
+namespace MovingPlatform
+{
+   public class MovingPlatforms : MonoBehaviour
 {
     [Header("All moving points")]
     [SerializeField]
@@ -59,3 +62,6 @@ public class MovingPlatforms : MonoBehaviour
         movePlatform();
     }
 }
+
+}
+

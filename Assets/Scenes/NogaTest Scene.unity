@@ -3509,6 +3509,7 @@ GameObject:
   - component: {fileID: 1761706044}
   - component: {fileID: 1761706046}
   - component: {fileID: 1761706045}
+  - component: {fileID: 1761706047}
   m_Layer: 0
   m_Name: Collecitble
   m_TagString: Untagged
@@ -3633,6 +3634,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1761706047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761706043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5132f663b9f36247b58dfca56a41d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Ghost
+  time: 2
 --- !u!1 &1811160545
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,6 +4273,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 478020990}
     m_Modifications:
+    - target: {fileID: 1440762331882704060, guid: d9a8ce5075bc1e543aa461b74d09ebb4, type: 3}
+      propertyPath: levelCollectible
+      value: 
+      objectReference: {fileID: 1761706047}
     - target: {fileID: 7210257696627319887, guid: d9a8ce5075bc1e543aa461b74d09ebb4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -8,8 +8,8 @@ using ButtonClass;
 public class MovingPlatformsButton : MovingPlatforms
 {
     [Header("Button Controls")]
-    [SerializeField]
     [Header("Button")]
+    [SerializeField]
     private Button button;
     [SerializeField]
     private bool isActivated = false;

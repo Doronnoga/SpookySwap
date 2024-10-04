@@ -12,6 +12,7 @@ namespace CollectibleClass
         protected string targetTag;
         [SerializeField]
         protected float time;
+        [SerializeField]
         Animator animator;
 
 
@@ -25,7 +26,7 @@ namespace CollectibleClass
             {
                 Debug.Log("Collectible Collected");
                 OnCollected?.Invoke();//invoke getting collected
-                animator.SetTrigger("Collected");//do anim
+                animator.SetTrigger("Destroy");//do anim
                 Invoke("OnDestroy" , time);//wait anim durationto get destroyed
             }
         }
@@ -33,7 +34,7 @@ namespace CollectibleClass
         private void OnDestroy()
         {
             Debug.Log("Collectible Destroyed");
-            Destroy(this);//die
+            Destroy(gameObject, time);//die
         }
     }
 }

@@ -9,13 +9,15 @@ using CollectibleClass;
 using static GoalClass.Goal;
 
 
-namespace LevelManager
+namespace LevelManagerClass
 {
     public class LevelManager : MonoBehaviour
     {
         [Header("Scene name\n")]
         [SerializeField] 
-        private CinemachineVirtualCamera virtualCamera; 
+        private CinemachineVirtualCamera virtualCamera;
+        [SerializeField]
+        private int sceneIndex;//for game manager
         [SerializeField]
         public string sceneName = "";//name of connected scene
         [SerializeField]

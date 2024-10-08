@@ -30,6 +30,12 @@ namespace LevelManager
         [SerializeField]
         private GameObject Body;
 
+        [Header("PLAYERS ACTIVITION scripts\n")] //checks if all the players should be in this scene
+        [SerializeField]
+        private bool isSkeletonActive = true;
+        [SerializeField]
+        private bool isBodyActive = true;
+
         [Header("Player's MOVEMENT scripts\n")]
         [SerializeField]
         private PlayerMovement ghostMovement;
@@ -121,14 +127,14 @@ namespace LevelManager
                 changeCameraTarget(Ghost.transform);
                 Debug.Log("GHOST ACTIVATED");
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2)) // Switch to Skeleton
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && isSkeletonActive) // Switch to Skeleton
             {
                 ActivatePlayer(Skeleton);
                 changeCameraTarget(Skeleton.transform);
                 Debug.Log("SKELETON ACTIVATED");
 
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3)) // Switch to Body
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && isBodyActive) // Switch to Body
             {
                 ActivatePlayer(Body);
                 changeCameraTarget(Body.transform);

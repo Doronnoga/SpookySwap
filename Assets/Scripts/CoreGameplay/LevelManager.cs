@@ -5,6 +5,8 @@ using GoalClass;
 using PlayerMovementScript;
 using UnityEngine.UI;
 using Cinemachine;
+using CollectibleClass;
+using static GoalClass.Goal;
 
 
 namespace LevelManager
@@ -13,14 +15,17 @@ namespace LevelManager
     {
         [Header("Scene name\n")]
         [SerializeField] 
-        private CinemachineVirtualCamera virtualCamera; [SerializeField]
+        private CinemachineVirtualCamera virtualCamera; 
+        [SerializeField]
         public string sceneName = "";//name of connected scene
+        [SerializeField]
+        public bool beenWon = false;
 
         [Header("GOALS\n")]
         [SerializeField]
         List<Goal> goalList = new List<Goal>();
-        [SerializeField]
-        public bool beenWon = false;
+
+        int goalsWon = 0;
 
         [Header("PLAYERS\n")]
         [SerializeField]
@@ -80,10 +85,20 @@ namespace LevelManager
 
         private void ActivatePlayer(GameObject player)
         {
-            //turn all off
-            ghostMovement.enabled = false;
-            bodyMovement.enabled = false;
-            skeletonMovement.enabled = false;
+            //turn all off if not null
+            if (ghostMovement != null) 
+            { 
+              ghostMovement.enabled = false;
+            }
+            if (bodyMovement != null) 
+            { 
+                bodyMovement.enabled = false;
+            }
+            if (skeletonMovement != null) 
+            { 
+                skeletonMovement.enabled = false;
+            }
+
             for (int i = 0; i < activePlayerButtonList.Count; i++) 
             {
                 activePlayerButtonList[i].interactable = false;
@@ -143,13 +158,25 @@ namespace LevelManager
             }
         }
 
+        private void addWin() 
+        {
+            goalsWon++;
+        }
+
+        private void removeWin() 
+        {
+            goalsWon--;
+        }
+
         private void checkForWin()
         {
-            int goalsWon = 0;
+            Debug.Log("CHECKED FOR WIN");
+            goalsWon = 0;
 
-            // count how many been won
+            // Count how many goals have been won
             foreach (var goal in goalList)
             {
+                Debug.Log($"Goal {goal.gameObject.name} win status: {goal.win}");
                 if (goal.win)
                 {
                     goalsWon++;
@@ -159,20 +186,19 @@ namespace LevelManager
             // Check if all goals have been won
             if (goalsWon == goalList.Count)
             {
-                if (!beenWon) 
+                Debug.LogWarning("goals won -- goals list count");
+                if (!beenWon)
                 {
+                    Debug.LogWarning("LEVEL WON.");
                     beenWon = true;
-                    Debug.Log("LEVEL WON.");
                     disablePlayers();
                     endScreenCanvas.SetActive(true);
-
-                    // Enter Win event here- canvas or whatever
-                    // SceneManager.LoadScene("NextSceneName");
+                    // Trigger win event, display win screenwhatever.
                 }
             }
             else
             {
-                if (beenWon) // Reset 
+                if (beenWon) // If all goals are not won reset the win state
                 {
                     beenWon = false;
                     Debug.Log($"KEEP GOING. Goals won: {goalsWon}/{goalList.Count}");
@@ -188,21 +214,25 @@ namespace LevelManager
                 virtualCamera.LookAt = targetTransform;
             }
         }
+
         void Start ()
         {
-            Debug.Log("Level manager alive");
             endScreenCanvas.SetActive(false);
+            for (int i = 0; i < goalList.Count; i++) 
+            {
+                Debug.Log($"{i}bound check for win");
+               goalList[i].OnGoalEnter += checkForWin;
+            }
             checkIfNull();
             ActivatePlayer(Ghost);
         }
 
-        private void Update ()
+        private void FixedUpdate ()
         {
             if (!beenWon) //if level is not won check stuff
             {
               checkInput();
-              checkForWin();
             }
-        }
+        }//check for input
     }
 }

@@ -7,7 +7,9 @@ namespace GameManager
 {
     public class Gamemanager : MonoBehaviour
     {
-        List<string> levelList = new List<string>();
+        public static Gamemanager instance;
+
+        Dictionary<string, bool> levelDictionary = new Dictionary<string, bool> ();//dictionary for levels- maybe change to hold level manager instead of string
 
         void Start()
         {

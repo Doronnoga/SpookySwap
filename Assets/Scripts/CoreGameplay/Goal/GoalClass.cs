@@ -18,18 +18,15 @@ namespace GoalClass
 
         public virtual void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Triggered by: " + other.gameObject.name);
 
             if (other.gameObject.CompareTag(playerTag))
             {
-                Debug.Log($"{playerTag} touched a CORRECT goal!");
                 win = true;
                 goalCorrect = true;
                 OnGoalEnter?.Invoke();  // Invoke event for LevelManager
             }
             else
             {
-                Debug.Log($"INCORRECT: {other.gameObject.tag} touched a WRONG goal!");
                 win = false;
                 goalCorrect = false;
             }
@@ -41,7 +38,6 @@ namespace GoalClass
             // Ensure it's the correct player leaving, then reset
             if (other.gameObject.CompareTag(playerTag))
             {
-                Debug.Log($"{playerTag} left goal!");
                 win = false;
                 goalCorrect = false;
             }

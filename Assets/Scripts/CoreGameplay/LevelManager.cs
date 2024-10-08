@@ -67,7 +67,6 @@ namespace LevelManager
             {
                 Debug.LogError("THE LEVEL MANAGER IS MISSING A GOAL: please give it a goal.");
             }
-            else { Debug.Log("Levelmanager Goal list okay"); }
             if (Ghost == null)
             {
                 Debug.LogError("GHOST IS NULL please give it a PLAYER.");
@@ -80,7 +79,6 @@ namespace LevelManager
             {
                 Debug.LogError("BODY IS NULL please give it a PLAYER.");
             }
-            else { Debug.Log("Levelmanager players all here okay"); }
         }
 
         private void ActivatePlayer(GameObject player)
@@ -140,43 +138,28 @@ namespace LevelManager
             {
                 ActivatePlayer(Ghost);
                 changeCameraTarget(Ghost.transform);
-                Debug.Log("GHOST ACTIVATED");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) && isSkeletonActive) // Switch to Skeleton
             {
                 ActivatePlayer(Skeleton);
                 changeCameraTarget(Skeleton.transform);
-                Debug.Log("SKELETON ACTIVATED");
 
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) && isBodyActive) // Switch to Body
             {
                 ActivatePlayer(Body);
                 changeCameraTarget(Body.transform);
-                Debug.Log("BODY ACTIVATED");
 
             }
         }
 
-        private void addWin() 
-        {
-            goalsWon++;
-        }
-
-        private void removeWin() 
-        {
-            goalsWon--;
-        }
-
         private void checkForWin()
         {
-            Debug.Log("CHECKED FOR WIN");
             goalsWon = 0;
 
             // Count how many goals have been won
             foreach (var goal in goalList)
             {
-                Debug.Log($"Goal {goal.gameObject.name} win status: {goal.win}");
                 if (goal.win)
                 {
                     goalsWon++;
@@ -186,22 +169,18 @@ namespace LevelManager
             // Check if all goals have been won
             if (goalsWon == goalList.Count)
             {
-                Debug.LogWarning("goals won -- goals list count");
                 if (!beenWon)
                 {
-                    Debug.LogWarning("LEVEL WON.");
                     beenWon = true;
                     disablePlayers();
                     endScreenCanvas.SetActive(true);
-                    // Trigger win event, display win screenwhatever.
                 }
             }
             else
             {
-                if (beenWon) // If all goals are not won reset the win state
+                if (beenWon) 
                 {
                     beenWon = false;
-                    Debug.Log($"KEEP GOING. Goals won: {goalsWon}/{goalList.Count}");
                 }
             }
         }
@@ -220,7 +199,6 @@ namespace LevelManager
             endScreenCanvas.SetActive(false);
             for (int i = 0; i < goalList.Count; i++) 
             {
-                Debug.Log($"{i}bound check for win");
                goalList[i].OnGoalEnter += checkForWin;
             }
             checkIfNull();

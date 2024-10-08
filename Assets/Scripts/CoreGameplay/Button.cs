@@ -20,7 +20,6 @@ namespace ButtonClass
     {
         if (other.CompareTag(tagToInteract)) 
         {
-            Debug.Log("Button Pressed");
             OnButtonPressed?.Invoke();
         }
     }
@@ -29,7 +28,6 @@ namespace ButtonClass
     {
         if (other.CompareTag(tagToInteract)) 
         {
-            Debug.Log("Button Released");
             OnButtonReleased?.Invoke();
         }
     }

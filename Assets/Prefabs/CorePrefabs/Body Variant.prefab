@@ -101,15 +101,15 @@ PrefabInstance:
       value: 0.032849967
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2467814833109763941, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 8555496216152525724}
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
-      insertIndex: -1
+      insertIndex: 4
       addedObject: {fileID: 3585195213782188799}
   m_SourcePrefab: {fileID: 100100000, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
 --- !u!1 &4147277612409512061 stripped
@@ -132,6 +132,11 @@ MonoBehaviour:
   rb: {fileID: 8593310240231502083}
   moveSpeed: 5.7
   jumpForce: 70
+  interactionDistance: 1.5
+  pushForce: 10
+  boxMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3585195213782188799
 MonoBehaviour:
   m_ObjectHideFlags: 0

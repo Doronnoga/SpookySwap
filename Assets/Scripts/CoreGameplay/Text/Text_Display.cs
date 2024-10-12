@@ -2,17 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
 
-public class Text_Display : MonoBehaviour
+namespace TextDisplayClass 
+{ 
+  public class Text_Display : MonoBehaviour
 {
     [Header("Texts")]
     [SerializeField]
-    private Text uiText;
+    private TMP_Text uiText;
     [Header("Colors")]
     [SerializeField]
-    private Color startColor;
+    private Color startColor;    
     [SerializeField]
     private Color endColor;
     [Header("Time")]
@@ -20,12 +23,15 @@ public class Text_Display : MonoBehaviour
     private float fadeTime = 0.1f;
     [SerializeField]
     private float duration = 0.5f;
+    [SerializeField]
+    private string playerTag;
 
     private bool isColliding = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        uiText = GetComponent<TMP_Text>();
         uiText.color = startColor;
     }
 
@@ -54,20 +60,21 @@ public class Text_Display : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D ghost) //player colliding with trigger
+    void OnTriggerEnter2D(Collider2D other) //player colliding with trigger
     {
-        if (ghost.gameObject.tag == "Ghost")
+        if (other.gameObject.tag == playerTag)
         {
             isColliding = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D ghost) //player exit from trigger
+    private void OnTriggerExit2D(Collider2D other) //player exit from trigger
     {
-        if (ghost.gameObject.tag == "Ghost")
+        if (other.gameObject.tag == playerTag)
         {
             isColliding = false;
         }
     }
 
+}
 }

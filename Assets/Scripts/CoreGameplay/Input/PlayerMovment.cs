@@ -7,7 +7,6 @@ namespace PlayerMovementScript
     {
         protected PlayerControls controls;
         protected Vector2 moveDirection = Vector2.zero;
-
         [SerializeField]
         protected Rigidbody2D rb;
 
@@ -19,6 +18,7 @@ namespace PlayerMovementScript
 
         protected virtual void Awake()
         {
+            
             // Initialize the PlayerControls
             controls = new PlayerControls();
 

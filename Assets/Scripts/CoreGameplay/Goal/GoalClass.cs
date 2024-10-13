@@ -7,38 +7,40 @@ namespace GoalClass
     public class Goal : MonoBehaviour
     {
         [SerializeField]
-        protected string playerTag = "";
+        protected string playerTag = "";  // The correct tag for players entering the goal
         [SerializeField]
-        protected bool goalCorrect = false;
+        protected bool goalCorrect = false;  // Tracks if the correct player entered
+        [SerializeField]
+        public bool win = false;  // Tracks if the goal is "won"
 
-        [SerializeField]
-        public bool win = false;
+        public delegate void GoalCheck();
+        public event GoalCheck OnGoalEnter;
 
         public virtual void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Triggered by: " + other.gameObject.name);
-            // Check if the object inside the trigger has the correct playerTag
+
             if (other.gameObject.CompareTag(playerTag))
             {
-                Debug.Log($"{playerTag} touched a CORRECT goal!");
                 win = true;
+                goalCorrect = true;
+                OnGoalEnter?.Invoke();  // Invoke event for LevelManager
             }
             else
             {
-                Debug.Log($"INCORRECT: {other.gameObject.tag} touched a WRONG goal!");
                 win = false;
+                goalCorrect = false;
             }
         }
 
+        // Called when an object exits the trigger
         public virtual void OnTriggerExit2D(Collider2D other)
         {
-                Debug.Log($"{other.gameObject.tag} left goal!");
+            // Ensure it's the correct player leaving, then reset
+            if (other.gameObject.CompareTag(playerTag))
+            {
                 win = false;
-        }
-
-        void Start()
-        {
-            // Initialization logic (if any)
+                goalCorrect = false;
+            }
         }
     }
 }

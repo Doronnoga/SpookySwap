@@ -5,22 +5,29 @@ using GoalClass;
 using PlayerMovementScript;
 using UnityEngine.UI;
 using Cinemachine;
+using CollectibleClass;
+using static GoalClass.Goal;
 
 
-namespace LevelManager
+namespace LevelManagerClass
 {
     public class LevelManager : MonoBehaviour
     {
         [Header("Scene name\n")]
         [SerializeField] 
-        private CinemachineVirtualCamera virtualCamera; [SerializeField]
+        private CinemachineVirtualCamera virtualCamera;
+        [SerializeField]
+        private int sceneIndex;//for game manager
+        [SerializeField]
         public string sceneName = "";//name of connected scene
+        [SerializeField]
+        public bool beenWon = false;
 
         [Header("GOALS\n")]
         [SerializeField]
         List<Goal> goalList = new List<Goal>();
-        [SerializeField]
-        public bool beenWon = false;
+
+        int goalsWon = 0;
 
         [Header("PLAYERS\n")]
         [SerializeField]
@@ -62,7 +69,6 @@ namespace LevelManager
             {
                 Debug.LogError("THE LEVEL MANAGER IS MISSING A GOAL: please give it a goal.");
             }
-            else { Debug.Log("Levelmanager Goal list okay"); }
             if (Ghost == null)
             {
                 Debug.LogError("GHOST IS NULL please give it a PLAYER.");
@@ -75,15 +81,24 @@ namespace LevelManager
             {
                 Debug.LogError("BODY IS NULL please give it a PLAYER.");
             }
-            else { Debug.Log("Levelmanager players all here okay"); }
         }
 
         private void ActivatePlayer(GameObject player)
         {
-            //turn all off
-            ghostMovement.enabled = false;
-            bodyMovement.enabled = false;
-            skeletonMovement.enabled = false;
+            //turn all off if not null
+            if (ghostMovement != null) 
+            { 
+              ghostMovement.enabled = false;
+            }
+            if (bodyMovement != null) 
+            { 
+                bodyMovement.enabled = false;
+            }
+            if (skeletonMovement != null) 
+            { 
+                skeletonMovement.enabled = false;
+            }
+
             for (int i = 0; i < activePlayerButtonList.Count; i++) 
             {
                 activePlayerButtonList[i].interactable = false;
@@ -121,33 +136,30 @@ namespace LevelManager
 
         private void checkInput() 
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) // Switch to Ghost
+            if (Input.GetKeyDown(KeyCode.Alpha1 ) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);
                 changeCameraTarget(Ghost.transform);
-                Debug.Log("GHOST ACTIVATED");
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2) && isSkeletonActive) // Switch to Skeleton
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) && isSkeletonActive) // Switch to Skeleton
             {
                 ActivatePlayer(Skeleton);
                 changeCameraTarget(Skeleton.transform);
-                Debug.Log("SKELETON ACTIVATED");
 
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3) && isBodyActive) // Switch to Body
+            else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3) && isBodyActive) // Switch to Body
             {
                 ActivatePlayer(Body);
                 changeCameraTarget(Body.transform);
-                Debug.Log("BODY ACTIVATED");
 
             }
         }
 
         private void checkForWin()
         {
-            int goalsWon = 0;
+            goalsWon = 0;
 
-            // count how many been won
+            // Count how many goals have been won
             foreach (var goal in goalList)
             {
                 if (goal.win)
@@ -159,23 +171,18 @@ namespace LevelManager
             // Check if all goals have been won
             if (goalsWon == goalList.Count)
             {
-                if (!beenWon) 
+                if (!beenWon)
                 {
                     beenWon = true;
-                    Debug.Log("LEVEL WON.");
                     disablePlayers();
                     endScreenCanvas.SetActive(true);
-
-                    // Enter Win event here- canvas or whatever
-                    // SceneManager.LoadScene("NextSceneName");
                 }
             }
             else
             {
-                if (beenWon) // Reset 
+                if (beenWon) 
                 {
                     beenWon = false;
-                    Debug.Log($"KEEP GOING. Goals won: {goalsWon}/{goalList.Count}");
                 }
             }
         }
@@ -188,10 +195,14 @@ namespace LevelManager
                 virtualCamera.LookAt = targetTransform;
             }
         }
+
         void Start ()
         {
-            Debug.Log("Level manager alive");
             endScreenCanvas.SetActive(false);
+            for (int i = 0; i < goalList.Count; i++) 
+            {
+               goalList[i].OnGoalEnter += checkForWin;
+            }
             checkIfNull();
             ActivatePlayer(Ghost);
         }
@@ -201,8 +212,7 @@ namespace LevelManager
             if (!beenWon) //if level is not won check stuff
             {
               checkInput();
-              checkForWin();
             }
-        }
+        }//check for input
     }
 }

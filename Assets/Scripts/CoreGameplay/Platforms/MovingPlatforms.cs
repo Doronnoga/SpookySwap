@@ -9,20 +9,20 @@ namespace MovingPlatform
     {
         [Header("All moving points")]
         [SerializeField]
-        private Transform start;
+        protected Transform start;
         [SerializeField]
-        private Transform end;
+        protected Transform end;
         [SerializeField]
-        private Transform platform;
+        protected Transform platform;
 
         [Header("Speed and curve")]
         [SerializeField]
-        private AnimationCurve speedCurve; //for nice smooth move
+        protected AnimationCurve speedCurve; //for nice smooth move
         [SerializeField]
-        private float duration = 2f;  // of one full movement 
+        protected float duration = 2f;  // of one full movement 
 
-        private float elapsedTime = 0f;
-        private bool movingToEnd = true;
+        protected float elapsedTime = 0f;
+        protected bool movingToEnd = true;
 
         private void OnDrawGizmos()
         {

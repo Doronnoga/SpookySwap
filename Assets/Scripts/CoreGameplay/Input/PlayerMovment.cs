@@ -28,9 +28,6 @@ namespace PlayerMovementScript
 
             // Bind the jump action
             controls.Player.Jump.performed += ctx => Jump();
-
-            // Bind the interact action
-            controls.Player.Interact.performed += ctx => Interact();
         }
 
         protected virtual void OnEnable()
@@ -53,12 +50,21 @@ namespace PlayerMovementScript
             }
         }
 
-        protected virtual void FixedUpdate()
+
+        protected virtual void Update()
         {
             if (rb != null)
             {
                 // Apply movement
                 rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // Maintain vertical velocity
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
             }
         }
 
@@ -68,11 +74,6 @@ namespace PlayerMovementScript
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             }
-        }
-
-        protected virtual void Interact()
-        {
-            Debug.Log($"{this.GetType().Name} Interacted");
         }
     }
 }

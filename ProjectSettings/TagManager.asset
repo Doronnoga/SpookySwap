@@ -12,6 +12,8 @@ TagManager:
   - Platform
   - Button
   - Collectible
+  - Pushable
+  - Box
   - Wind
   layers:
   - Default

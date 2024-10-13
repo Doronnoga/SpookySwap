@@ -9,10 +9,15 @@ namespace PlayerMovementScript
         protected float acceleration = 5f; // Control how quickly the ghost speeds up
         [SerializeField]
         protected float deceleration = 3f; // Control how quickly the ghost slows down
+        [SerializeField]
+        Animator animator;
 
         protected override void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
+            animator.SetBool("Moving", false);
+
             if (rb == null)
             {
                 Debug.LogError("Rigidbody2D component missing from ghost.");
@@ -21,7 +26,7 @@ namespace PlayerMovementScript
             rb.gravityScale = 0;
         }
 
-        protected override void FixedUpdate()
+        protected override void Update()
         {
             if (rb != null)
             {
@@ -35,6 +40,18 @@ namespace PlayerMovementScript
                 if (moveDirection == Vector2.zero)
                 {
                     rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+                    animator.SetBool("Moving", false);
+                }
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                    animator.SetBool("Moving", true);
+
+                }
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    animator.SetBool("Moving", true);
                 }
             }
         }

@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.10769248
       objectReference: {fileID: 0}
+    - target: {fileID: 7990308820791317442, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Mass
       value: 0.0001
@@ -342,11 +346,6 @@ MonoBehaviour:
   rb: {fileID: 7118204497347211072}
   moveSpeed: 12
   jumpForce: 0
-  interactionDistance: 1.5
-  pushForce: 10
-  boxMask:
-    serializedVersion: 2
-    m_Bits: 0
   acceleration: 2
   deceleration: 1
 --- !u!114 &1488312961869571896

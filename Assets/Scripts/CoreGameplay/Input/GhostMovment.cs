@@ -21,7 +21,7 @@ namespace PlayerMovementScript
             rb.gravityScale = 0;
         }
 
-        protected override void FixedUpdate()
+        protected override void Update()
         {
             if (rb != null)
             {

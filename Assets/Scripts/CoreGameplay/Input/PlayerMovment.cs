@@ -7,7 +7,6 @@ namespace PlayerMovementScript
     {
         protected PlayerControls controls;
         protected Vector2 moveDirection = Vector2.zero;
-
         [SerializeField]
         protected Rigidbody2D rb;
 
@@ -19,6 +18,7 @@ namespace PlayerMovementScript
 
         protected virtual void Awake()
         {
+            
             // Initialize the PlayerControls
             controls = new PlayerControls();
 
@@ -28,9 +28,6 @@ namespace PlayerMovementScript
 
             // Bind the jump action
             controls.Player.Jump.performed += ctx => Jump();
-
-            // Bind the interact action
-            controls.Player.Interact.performed += ctx => Interact();
         }
 
         protected virtual void OnEnable()
@@ -53,13 +50,8 @@ namespace PlayerMovementScript
             }
         }
 
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x);
-        }
 
-        protected virtual void FixedUpdate()
+        protected virtual void Update()
         {
             if (rb != null)
             {
@@ -82,11 +74,6 @@ namespace PlayerMovementScript
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             }
-        }
-
-        protected virtual void Interact()
-        {
-            Debug.Log($"{this.GetType().Name} Interacted");
         }
     }
 }

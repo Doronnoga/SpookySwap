@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 448
       objectReference: {fileID: 0}
+    - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 8942812376260589618, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -144,6 +148,10 @@ MonoBehaviour:
   rb: {fileID: 7979194424066382278}
   moveSpeed: 5
   jumpForce: 7
+  interactionDistance: 5
+  boxMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &9013768421980936896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ TagManager:
   - Platform
   - Button
   - Collectible
+  - Pushable
+  - Box
   layers:
   - Default
   - TransparentFX

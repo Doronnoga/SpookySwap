@@ -136,18 +136,18 @@ namespace LevelManagerClass
 
         private void checkInput() 
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) // Switch to Ghost
+            if (Input.GetKeyDown(KeyCode.Alpha1 ) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);
                 changeCameraTarget(Ghost.transform);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2) && isSkeletonActive) // Switch to Skeleton
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) && isSkeletonActive) // Switch to Skeleton
             {
                 ActivatePlayer(Skeleton);
                 changeCameraTarget(Skeleton.transform);
 
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3) && isBodyActive) // Switch to Body
+            else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3) && isBodyActive) // Switch to Body
             {
                 ActivatePlayer(Body);
                 changeCameraTarget(Body.transform);

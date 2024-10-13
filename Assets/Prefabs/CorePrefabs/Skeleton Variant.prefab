@@ -148,7 +148,7 @@ MonoBehaviour:
   rb: {fileID: 7979194424066382278}
   moveSpeed: 5
   jumpForce: 7
-  interactionDistance: 5
+  interactionDistance: 1.5
   boxMask:
     serializedVersion: 2
     m_Bits: 2048

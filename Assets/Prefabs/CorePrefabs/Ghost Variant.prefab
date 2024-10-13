@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 4075626063266270789, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 3040
+      objectReference: {fileID: 0}
     - target: {fileID: 5093111980448245465, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -338,6 +342,11 @@ MonoBehaviour:
   rb: {fileID: 7118204497347211072}
   moveSpeed: 12
   jumpForce: 0
+  interactionDistance: 1.5
+  pushForce: 10
+  boxMask:
+    serializedVersion: 2
+    m_Bits: 0
   acceleration: 2
   deceleration: 1
 --- !u!114 &1488312961869571896

@@ -17,16 +17,6 @@ namespace PlayerMovementScript
         [SerializeField]
         protected float jumpForce = 5f;
 
-        // New vars for push/pull
-        private GameObject objectToMove = null;
-        private bool isInteracting = false;
-        private Vector2 interactionOffset;
-        [SerializeField]
-        private float interactionDistance = 1.5f;
-        [SerializeField]
-        private float pushForce = 10f;
-        public LayerMask boxMask;
-
         protected virtual void Awake()
         {
             // Initialize the PlayerControls
@@ -75,35 +65,14 @@ namespace PlayerMovementScript
             {
                 // Apply movement
                 rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // Maintain vertical velocity
-                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) 
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    transform.localScale = new Vector3(1,1,1);
+                    transform.localScale = new Vector3(1, 1, 1);
                 }
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
                 }
-
-                Physics2D.queriesStartInColliders = false;
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, interactionDistance, boxMask);
-
-                if (hit.collider != null && hit.collider.CompareTag("Interactable"))
-                {
-                    if (hit != null && Input.GetKey(KeyCode.E))
-                    {
-                        objectToMove = hit.collider.gameObject;
-                        objectToMove.GetComponent<FixedJoint2D>().enabled = true;
-                        objectToMove.GetComponent<FixedJoint2D>().connectedBody = transform.GetComponent<Rigidbody2D>();
-
-                        isInteracting = true;
-
-                        // Optional: Calculate offset if you want to maintain a position relative to the object
-                        //interactionOffset = (Vector2)hit.collider.transform.position - rb.position;
-
-                        Debug.Log("Interaction started with " + hit.collider.name);
-                    }
-                }
-
             }
         }
 
@@ -113,36 +82,6 @@ namespace PlayerMovementScript
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             }
-        }
-
-        private void PushAdnPull()
-        {
-            Physics2D.queriesStartInColliders = false;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, interactionDistance, boxMask);
-
-            if (hit.collider != null && hit.collider.CompareTag("Interactable"))
-            {
-                if (hit != null && Input.GetKey(KeyCode.E))
-                {
-                    objectToMove = hit.collider.gameObject;
-                    isInteracting = true;
-
-                    // Optional: Calculate offset if you want to maintain a position relative to the object
-                    //interactionOffset = (Vector2)hit.collider.transform.position - rb.position;
-
-                    Debug.Log("Interaction started with " + hit.collider.name);
-                }
-            }
-            else
-            {
-                Debug.Log("No interactable object in range.");
-            }
-        }
-
-        private void StopInteraction()
-        {
-            isInteracting = false;
-            objectToMove = null;
         }
 
         protected virtual void Interact()

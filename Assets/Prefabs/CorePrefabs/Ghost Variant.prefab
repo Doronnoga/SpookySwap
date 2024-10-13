@@ -346,8 +346,8 @@ MonoBehaviour:
   rb: {fileID: 7118204497347211072}
   moveSpeed: 12
   jumpForce: 0
-  acceleration: 2
-  deceleration: 1
+  acceleration: 1
+  deceleration: 0.5
 --- !u!114 &1488312961869571896
 MonoBehaviour:
   m_ObjectHideFlags: 0

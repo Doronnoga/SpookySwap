@@ -207,7 +207,7 @@ namespace LevelManagerClass
             ActivatePlayer(Ghost);
         }
 
-        private void FixedUpdate ()
+        private void Update ()
         {
             if (!beenWon) //if level is not won check stuff
             {

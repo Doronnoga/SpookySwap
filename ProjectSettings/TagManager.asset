@@ -14,6 +14,7 @@ TagManager:
   - Collectible
   - Pushable
   - Box
+  - Wind
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - MapEdges
   - Platforms
   - Collectible
-  - 
+  - Wind
   - 
   - 
   - 

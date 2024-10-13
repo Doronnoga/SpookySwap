@@ -53,12 +53,26 @@ namespace PlayerMovementScript
             }
         }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x);
+        }
+
         protected virtual void FixedUpdate()
         {
             if (rb != null)
             {
                 // Apply movement
                 rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // Maintain vertical velocity
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
             }
         }
 

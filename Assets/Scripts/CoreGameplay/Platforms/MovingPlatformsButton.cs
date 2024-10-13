@@ -13,6 +13,10 @@ public class MovingPlatformsButton : MovingPlatforms
     private Button button;
     [SerializeField]
     private bool isActivated = false;
+    [SerializeField]
+    private bool holdToActivate = true;
+    [SerializeField]
+    private bool oneTimeMovment = true;
 
     public void ActivatePlatform()
     {
@@ -22,8 +26,12 @@ public class MovingPlatformsButton : MovingPlatforms
 
     public void DeactivatePlatform()
     {
-        isActivated = false;
-        Debug.Log("Platform Deactivated");
+        if (holdToActivate)
+        {
+            isActivated = false;
+            Debug.Log("Platform Deactivated");
+        }
+        Debug.Log("Platform not on hold");
     }
 
     protected override void movePlatform()
@@ -46,7 +54,28 @@ public class MovingPlatformsButton : MovingPlatforms
     {
         if (isActivated)
         {
-            movePlatform();
+            if (oneTimeMovment)
+            {
+                float normalizedTime = elapsedTime / duration;
+                float curveValue = speedCurve.Evaluate(normalizedTime);
+
+                if (movingToEnd)
+                {
+                    platform.position = Vector2.Lerp(start.position, end.position, curveValue);
+                }
+                else
+                {
+                    platform.position = Vector2.Lerp(end.position, start.position, curveValue);
+                }
+
+                elapsedTime += Time.deltaTime;
+            }
+
+            else
+            {
+                movePlatform();
+            }
         }
     }
 }
+

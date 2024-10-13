@@ -36,6 +36,14 @@ namespace PlayerMovementScript
                 {
                     rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
                 }
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
             }
         }
 

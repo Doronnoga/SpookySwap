@@ -58,11 +58,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_TagString
       value: Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619292954345001361, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7576636823040110654, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Color.b
@@ -94,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 64
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8942812376260589618, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Color.b

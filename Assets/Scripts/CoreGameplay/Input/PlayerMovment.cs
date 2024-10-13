@@ -51,7 +51,7 @@ namespace PlayerMovementScript
         }
 
 
-        protected virtual void FixedUpdate()
+        protected virtual void Update()
         {
             if (rb != null)
             {

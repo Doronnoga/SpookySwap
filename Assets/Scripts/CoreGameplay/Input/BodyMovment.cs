@@ -25,9 +25,9 @@ public class BodyMovment : PlayerMovement
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)(direction * interactionDistance));
     }
 
-    protected override void FixedUpdate()
+    protected override void Update()
     {
-        base.FixedUpdate();
+        base.Update();
 
         // Update facing direction
         if (moveDirection.x > 0)

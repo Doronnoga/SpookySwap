@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c214d1f2823d6f448bad9c748f6ba685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Skeleton
+  playerTag: Ghost
   goalCorrect: 0
   win: 0
 --- !u!114 &6253193232225339033

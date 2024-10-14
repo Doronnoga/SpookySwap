@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 2.8191838
       objectReference: {fileID: 0}
+    - target: {fileID: 2390411659707141740, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
+      propertyPath: playerTag
+      value: Skeleton
+      objectReference: {fileID: 0}
     - target: {fileID: 2925661620785707993, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.88

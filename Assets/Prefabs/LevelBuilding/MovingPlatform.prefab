@@ -146,8 +146,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 9049654147562551462}
     m_Modifications:
     - target: {fileID: 282114418725832605, guid: 58999c6a92111e748838970ca22f6958, type: 3}
-      propertyPath: m_InstanceId
-      value: -45732
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2404963356911272164, guid: 58999c6a92111e748838970ca22f6958, type: 3}
       propertyPath: m_Name
@@ -192,14 +192,6 @@ PrefabInstance:
     - target: {fileID: 3799585463016923682, guid: 58999c6a92111e748838970ca22f6958, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356728629029046464, guid: 58999c6a92111e748838970ca22f6958, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356728629029046464, guid: 58999c6a92111e748838970ca22f6958, type: 3}
-      propertyPath: m_Color.r
-      value: 0.5472446
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

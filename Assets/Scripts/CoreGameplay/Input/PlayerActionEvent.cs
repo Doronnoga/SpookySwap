@@ -17,11 +17,8 @@ namespace PlayerMovementScript
         protected float jumpForce = 5f;
 
         public delegate void PlayerActionEvent();
+        public event PlayerActionEvent OnMove;
         public event PlayerActionEvent OnStop;
-        public event PlayerActionEvent OnW;
-        public event PlayerActionEvent OnS;
-        public event PlayerActionEvent OnD;
-        public event PlayerActionEvent OnA;
         public event PlayerActionEvent OnJump;
         public event PlayerActionEvent OnPush;
         public event PlayerActionEvent OnSwitch;
@@ -64,13 +61,13 @@ namespace PlayerMovementScript
                 {
                     Debug.Log("Right arrow");
                     transform.localScale = new Vector3(1, 1, 1);
-                    OnD?.Invoke();
+                    OnMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
                     Debug.Log("Left arrow");
-                    OnA?.Invoke();
+                    OnMove?.Invoke();
                 }
                 if (rb.velocity == Vector2.zero) 
                 {

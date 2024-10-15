@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LevelManagerClass;
+using static GhostMovementScript.GhostMovement;
+using GhostMovementScript;
 
 public class AnimatorController : MonoBehaviour
 {
@@ -10,23 +12,31 @@ public class AnimatorController : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private PlayerMovement playerMovement;
+    [SerializeField]
+    private bool isGhost = false;
+    [SerializeField]
+    private GhostMovement ghostMovment;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
 
-        // Subscribe to events
         if (playerMovement != null)
         {
-            playerMovement.OnW += OnPlayerMove;
-            playerMovement.OnS += OnPlayerMove;
-            playerMovement.OnA += OnPlayerMove;
-            playerMovement.OnD += OnPlayerMove;
+            playerMovement.OnMove += OnPlayerMove;
             playerMovement.OnJump += MoveJump;
             playerMovement.OnStop += StopMovment;
             playerMovement.OnPush += PushMovment;
             playerMovement.OnSwitch += OnSwitchingPlayer;
+
+            if (isGhost)
+            {
+                ghostMovment = GetComponent<GhostMovement>();
+                ghostMovment.OnMove += OnPlayerMove;
+                ghostMovment.OnStop += StopMovment;
+                ghostMovment.OnSwitch += OnSwitchingPlayer;
+            }
         }
     }
 

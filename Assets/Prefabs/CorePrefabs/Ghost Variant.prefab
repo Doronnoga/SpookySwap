@@ -334,7 +334,10 @@ PrefabInstance:
       addedObject: {fileID: 1488312961869571896}
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8205964989007581037}
+      addedObject: {fileID: 824676353111834257}
+    - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1468536919466221563}
   m_SourcePrefab: {fileID: 100100000, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
 --- !u!1 &3172632450246852158 stripped
 GameObject:
@@ -358,7 +361,6 @@ MonoBehaviour:
   jumpForce: 0
   acceleration: 1
   deceleration: 0.5
-  animator: {fileID: 0}
 --- !u!114 &1488312961869571896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +411,23 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!95 &8205964989007581037
+--- !u!114 &824676353111834257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3172632450246852158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003204a56f758f9468390044ec82130a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1468536919466221563}
+  playerMovement: {fileID: 1734907605905709432}
+  isGhost: 1
+  ghostMovment: {fileID: 1734907605905709432}
+--- !u!95 &1468536919466221563
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

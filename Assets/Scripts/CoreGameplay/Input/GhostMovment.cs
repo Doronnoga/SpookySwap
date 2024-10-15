@@ -1,8 +1,9 @@
 using System.Buffers.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlayerMovementScript;
 
-namespace PlayerMovementScript
+namespace GhostMovementScript
 {
     public class GhostMovement : PlayerMovement
     {
@@ -11,11 +12,10 @@ namespace PlayerMovementScript
         [SerializeField]
         protected float deceleration = 3f; // Control how quickly the ghost slows down
         [SerializeField]
-
-        public event PlayerActionEvent OnW;
-        public event PlayerActionEvent OnS;
-        public event PlayerActionEvent OnD;
-        public event PlayerActionEvent OnA;
+        public delegate void GhostMovmentAction();
+        public event GhostMovmentAction OnMove;
+        public event GhostMovmentAction OnStop;
+        public event GhostMovmentAction OnSwitch;
 
         protected override void Start()
         {
@@ -39,26 +39,32 @@ namespace PlayerMovementScript
                 if (moveDirection == Vector2.zero)
                 {
                     rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
+                    OnStop?.Invoke();
                 }
 
                 // Trigger events based on input
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
                     transform.localScale = new Vector3(1, 1, 1);
-                    OnD?.Invoke(); // Use null conditional operator to avoid null ref exceptions
+                    OnMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
-                    OnA?.Invoke();
+                    OnMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    OnS?.Invoke();
+                    OnMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    OnW?.Invoke();
+                    OnMove?.Invoke();
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    Debug.Log("Key 123 GHOST");
+                    OnSwitch?.Invoke();
                 }
             }
         }

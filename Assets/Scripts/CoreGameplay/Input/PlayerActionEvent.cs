@@ -16,17 +16,21 @@ namespace PlayerMovementScript
         [SerializeField]
         protected float jumpForce = 5f;
 
+        public delegate void PlayerActionEvent();
+        public event PlayerActionEvent OnStop;
+        public event PlayerActionEvent OnW;
+        public event PlayerActionEvent OnS;
+        public event PlayerActionEvent OnD;
+        public event PlayerActionEvent OnA;
+        public event PlayerActionEvent OnJump;
+        public event PlayerActionEvent OnPush;
+        public event PlayerActionEvent OnSwitch;
+
         protected virtual void Awake()
         {
-            
-            // Initialize the PlayerControls
             controls = new PlayerControls();
-
-            // Bind the Move action
             controls.Player.Move.performed += ctx => moveDirection = ctx.ReadValue<Vector2>();
             controls.Player.Move.canceled += ctx => moveDirection = Vector2.zero;
-
-            // Bind the jump action
             controls.Player.Jump.performed += ctx => Jump();
         }
 
@@ -50,7 +54,6 @@ namespace PlayerMovementScript
             }
         }
 
-
         protected virtual void Update()
         {
             if (rb != null)
@@ -59,11 +62,25 @@ namespace PlayerMovementScript
                 rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // Maintain vertical velocity
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
+                    Debug.Log("Right arrow");
                     transform.localScale = new Vector3(1, 1, 1);
+                    OnD?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
+                    Debug.Log("Left arrow");
+                    OnA?.Invoke();
+                }
+                if (rb.velocity == Vector2.zero) 
+                {
+                    Debug.Log("Zero movment");
+                    OnStop?.Invoke();
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3)) 
+                {
+                    Debug.Log("Key 123");
+                    OnSwitch?.Invoke();
                 }
             }
         }
@@ -73,6 +90,8 @@ namespace PlayerMovementScript
             if (rb != null && Mathf.Abs(rb.velocity.y) < 0.01f) // Check if the player is on the ground
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                Debug.Log("Jump");
+                OnJump?.Invoke();
             }
         }
     }

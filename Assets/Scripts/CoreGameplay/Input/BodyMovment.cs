@@ -17,6 +17,9 @@ public class BodyMovment : PlayerMovement
     private FixedJoint2D currentJoint = null;
     private bool facingRight = true; // Track player orientation
 
+    public event PlayerActionEvent OnPush;
+    public event PlayerActionEvent OnStop;
+
 
     private void OnDrawGizmosSelected()
     {
@@ -24,11 +27,8 @@ public class BodyMovment : PlayerMovement
         Vector2 direction = facingRight ? Vector2.right : Vector2.left;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)(direction * interactionDistance));
     }
-
-    protected override void Update()
+    private void pushAndPull()
     {
-        base.Update();
-
         // Update facing direction
         if (moveDirection.x > 0)
             facingRight = true;
@@ -36,7 +36,7 @@ public class BodyMovment : PlayerMovement
             facingRight = false;
         Vector2 direction = facingRight ? Vector2.right : Vector2.left;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, interactionDistance, boxMask);
-        
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("KeyIsDown");
@@ -53,6 +53,7 @@ public class BodyMovment : PlayerMovement
                         currentJoint = gameObject.AddComponent<FixedJoint2D>();
                         currentJoint.connectedBody = boxRb;
                         currentJoint.enableCollision = true;
+                        OnPush?.Invoke();
                     }
                 }
                 else
@@ -71,7 +72,14 @@ public class BodyMovment : PlayerMovement
                 Destroy(currentJoint);
                 currentJoint.connectedBody = null;
                 currentJoint.enableCollision = false;
+                OnStop?.Invoke();
             }
         }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        pushAndPull();
     }
 }

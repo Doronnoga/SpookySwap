@@ -1,3 +1,4 @@
+using System.Buffers.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +11,15 @@ namespace PlayerMovementScript
         [SerializeField]
         protected float deceleration = 3f; // Control how quickly the ghost slows down
         [SerializeField]
-        Animator animator;
+
+        public event PlayerActionEvent OnW;
+        public event PlayerActionEvent OnS;
+        public event PlayerActionEvent OnD;
+        public event PlayerActionEvent OnA;
 
         protected override void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-            animator = GetComponent<Animator>();
-            animator.SetBool("Moving", false);
 
             if (rb == null)
             {
@@ -30,28 +33,32 @@ namespace PlayerMovementScript
         {
             if (rb != null)
             {
-                // Calculate target velocity based on input
                 Vector2 targetVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-
-                // Gradually accelerate towards the target velocity
                 rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, acceleration * Time.fixedDeltaTime);
 
-                // Apply deceleration if no input is detected
                 if (moveDirection == Vector2.zero)
                 {
                     rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-                    animator.SetBool("Moving", false);
                 }
+
+                // Trigger events based on input
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
                     transform.localScale = new Vector3(1, 1, 1);
-                    animator.SetBool("Moving", true);
-
+                    OnD?.Invoke(); // Use null conditional operator to avoid null ref exceptions
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
-                    animator.SetBool("Moving", true);
+                    OnA?.Invoke();
+                }
+                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                {
+                    OnS?.Invoke();
+                }
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                {
+                    OnW?.Invoke();
                 }
             }
         }

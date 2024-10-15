@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.988, y: -2.173, z: 0}
-  m_LocalScale: {x: 2, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4f9732f7e0fe028479c1d7da3e7e08e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 469732789
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.9774632, b: 0.45882356, a: 1}
+  m_Sprite: {fileID: 1001654068, guid: 5366446cf27ae47b28809bbbb7d4f400, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 5.13, y: 0.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -121,16 +121,16 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.13, y: 0, z: 0.14999999, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 4.17, y: 1}
+    newSize: {x: 5.13, y: 0.87}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.1, y: 0.77}
   m_EdgeRadius: 0
 --- !u!50 &3652798243505062490
 Rigidbody2D:
@@ -179,13 +179,13 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 512a0c6200000000b58dff1b73af3cfe19c27fe4
   m_ShapePath:
-  - {x: -0.50000006, y: -0.5, z: 0}
-  - {x: -0.50000006, y: 0.49999952, z: 0}
-  - {x: 0.5, y: 0.49999952, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  m_ShapePathHash: 0
+  - {x: -2.4870284, y: -0.41453612, z: 0}
+  - {x: -2.5404434, y: 0.42521888, z: 0}
+  - {x: 2.5724912, y: 0.46795088, z: 0}
+  - {x: 2.5938582, y: -0.41453648, z: 0}
+  m_ShapePathHash: -1658462838
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47916
+  m_InstanceId: -538258
   m_LocalBounds:
-    m_Center: {x: -0.000000059604645, y: -0.00000023841858, z: 0}
-    m_Extent: {x: 0.5, y: 0.49999976, z: 0}
+    m_Center: {x: 0.02670741, y: 0.026707202, z: 0}
+    m_Extent: {x: 2.5671508, y: 0.44124368, z: 0}

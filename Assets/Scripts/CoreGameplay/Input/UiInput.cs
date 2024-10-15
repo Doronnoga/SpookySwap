@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 
 public class UiInput : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public delegate void uiHandlerDelegate();
+    public event uiHandlerDelegate OnEsc;
+    
+    
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -8,25 +8,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 646954206923784805, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
-      propertyPath: m_Color.b
+    - target: {fileID: 645922651023178598, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 645922651023178598, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 0.14999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 645922651023178598, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 646954206923784805, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
-      propertyPath: m_Color.g
-      value: 0.45882356
+    - target: {fileID: 645922651023178598, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 5.13
       objectReference: {fileID: 0}
-    - target: {fileID: 646954206923784805, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7979127
+    - target: {fileID: 645922651023178598, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 645922651023178598, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.17
       objectReference: {fileID: 0}
     - target: {fileID: 2726510962384908238, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_Name
       value: MovingPlatformButton Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 5991924954493177144, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
-      propertyPath: m_InstanceId
-      value: -101600
+    - target: {fileID: 7239260108632008839, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7239260108632008839, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 9049654147562551462, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,3 +155,5 @@ MonoBehaviour:
   duration: 2
   button: {fileID: 0}
   isActivated: 0
+  holdToActivate: 1
+  oneTimeMovment: 1

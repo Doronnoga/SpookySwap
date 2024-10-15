@@ -14,19 +14,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 646954206923784805, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_Color.g
-      value: 0.45882356
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 646954206923784805, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_Color.r
-      value: 0.7979127
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 646954206923784805, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f9732f7e0fe028479c1d7da3e7e08e7, type: 2}
     - target: {fileID: 2726510962384908238, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_Name
       value: MovingPlatformButton Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5991924954493177144, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_InstanceId
-      value: -101600
+      value: -418650
       objectReference: {fileID: 0}
     - target: {fileID: 9049654147562551462, guid: a8c5a7c04442e4e4cab90dd3a20c310a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,3 +143,5 @@ MonoBehaviour:
   duration: 2
   button: {fileID: 0}
   isActivated: 0
+  holdToActivate: 1
+  oneTimeMovment: 1

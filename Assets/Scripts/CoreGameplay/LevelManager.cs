@@ -6,8 +6,6 @@ using PlayerMovementScript;
 using UnityEngine.UI;
 using Cinemachine;
 using CollectibleClass;
-using static GoalClass.Goal;
-
 
 namespace LevelManagerClass
 {
@@ -134,9 +132,9 @@ namespace LevelManagerClass
             }//turn off interaction button
         }
 
-        private void checkInput() 
+        private void checkInput()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 ) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);
                 changeCameraTarget(Ghost.transform);
@@ -145,13 +143,11 @@ namespace LevelManagerClass
             {
                 ActivatePlayer(Skeleton);
                 changeCameraTarget(Skeleton.transform);
-
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3) && isBodyActive) // Switch to Body
             {
                 ActivatePlayer(Body);
                 changeCameraTarget(Body.transform);
-
             }
         }
 

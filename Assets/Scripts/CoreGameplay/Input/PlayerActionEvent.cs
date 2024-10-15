@@ -16,17 +16,18 @@ namespace PlayerMovementScript
         [SerializeField]
         protected float jumpForce = 5f;
 
+        public delegate void PlayerActionEvent();
+        public event PlayerActionEvent OnMove;
+        public event PlayerActionEvent OnStop;
+        public event PlayerActionEvent OnJump;
+        public event PlayerActionEvent OnPush;
+        public event PlayerActionEvent OnSwitch;
+
         protected virtual void Awake()
         {
-            
-            // Initialize the PlayerControls
             controls = new PlayerControls();
-
-            // Bind the Move action
             controls.Player.Move.performed += ctx => moveDirection = ctx.ReadValue<Vector2>();
             controls.Player.Move.canceled += ctx => moveDirection = Vector2.zero;
-
-            // Bind the jump action
             controls.Player.Jump.performed += ctx => Jump();
         }
 
@@ -50,7 +51,6 @@ namespace PlayerMovementScript
             }
         }
 
-
         protected virtual void Update()
         {
             if (rb != null)
@@ -60,10 +60,20 @@ namespace PlayerMovementScript
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
                     transform.localScale = new Vector3(1, 1, 1);
+                    OnMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
+                    OnMove?.Invoke();
+                }
+                if (rb.velocity == Vector2.zero) 
+                {
+                    OnStop?.Invoke();
+                }
+                if (Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Alpha3)) 
+                {
+                    OnSwitch?.Invoke();
                 }
             }
         }
@@ -73,6 +83,7 @@ namespace PlayerMovementScript
             if (rb != null && Mathf.Abs(rb.velocity.y) < 0.01f) // Check if the player is on the ground
             {
                 rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                OnJump?.Invoke();
             }
         }
     }

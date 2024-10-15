@@ -33,35 +33,31 @@ public class AnimatorController : MonoBehaviour
             if (isGhost)
             {
                 ghostMovment = GetComponent<GhostMovement>();
-                ghostMovment.OnMove += OnPlayerMove;
-                ghostMovment.OnStop += StopMovment;
-                ghostMovment.OnSwitch += OnSwitchingPlayer;
+                ghostMovment.OnGhostMove += OnPlayerMove;
+                ghostMovment.OnGhostStop += StopMovment;
+                ghostMovment.OnGhostSwitch += OnSwitchingPlayer;
             }
         }
     }
 
     private void MoveJump() 
     {
-        Debug.Log("Jump");
         animator.SetTrigger("Jump");
+    }
+
+    private void StopMovment() 
+    {
+        animator.SetBool("Move", false);
     }
 
     private void OnPlayerMove()
     {
-        Debug.Log("Move");
         animator.SetBool("Move", true);
     }
 
     private void PushMovment() 
     {
-        Debug.Log("Push");
         animator.SetBool("Push", true);
-    }
-
-    private void StopMovment() 
-    {
-        Debug.Log("StopMove");
-        animator.SetBool("Move", false);
     }
 
     private void OnSwitchingPlayer() 

@@ -13,9 +13,9 @@ namespace GhostMovementScript
         protected float deceleration = 3f; // Control how quickly the ghost slows down
         [SerializeField]
         public delegate void GhostMovmentAction();
-        public event GhostMovmentAction OnMove;
-        public event GhostMovmentAction OnStop;
-        public event GhostMovmentAction OnSwitch;
+        public event GhostMovmentAction OnGhostMove;
+        public event GhostMovmentAction OnGhostStop;
+        public event GhostMovmentAction OnGhostSwitch;
 
         protected override void Start()
         {
@@ -39,32 +39,32 @@ namespace GhostMovementScript
                 if (moveDirection == Vector2.zero)
                 {
                     rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, deceleration * Time.fixedDeltaTime);
-                    OnStop?.Invoke();
+                    OnGhostStop?.Invoke();
                 }
 
                 // Trigger events based on input
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
                     transform.localScale = new Vector3(1, 1, 1);
-                    OnMove?.Invoke();
+                    OnGhostMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
                     transform.localScale = new Vector3(-1, 1, 1);
-                    OnMove?.Invoke();
+                    OnGhostMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    OnMove?.Invoke();
+                    OnGhostMove?.Invoke();
                 }
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    OnMove?.Invoke();
+                    OnGhostMove?.Invoke();
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3))
+                if (Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Alpha3))
                 {
                     Debug.Log("Key 123 GHOST");
-                    OnSwitch?.Invoke();
+                    OnGhostSwitch?.Invoke();
                 }
             }
         }

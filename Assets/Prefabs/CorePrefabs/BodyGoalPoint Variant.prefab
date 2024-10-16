@@ -132,6 +132,14 @@ PrefabInstance:
       propertyPath: m_FalloffIntensity
       value: 0.391
       objectReference: {fileID: 0}
+    - target: {fileID: 7056406388887221893, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
+      propertyPath: MaxDistance
+      value: 2.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056406388887221893, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
+      propertyPath: MinDistance
+      value: 0.53
+      objectReference: {fileID: 0}
     - target: {fileID: 7083987000406212237, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.25345662

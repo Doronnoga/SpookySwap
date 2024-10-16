@@ -63,7 +63,10 @@ MonoBehaviour:
   bodyMovement: {fileID: 0}
   endScreenCanvas: {fileID: 0}
   uiCanvas: {fileID: 0}
-  activePlayerButtonList: []
+  activePlayerButtonList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &359182381983922855
 MonoBehaviour:
   m_ObjectHideFlags: 0

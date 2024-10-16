@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2745894337583385582, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a73ea21367565fe478f25a8a2e33ade3, type: 2}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.2
@@ -75,6 +79,14 @@ PrefabInstance:
     - target: {fileID: 4619292954345001361, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093111980448245465, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.023
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093111980448245465, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.038
       objectReference: {fileID: 0}
     - target: {fileID: 7576636823040110654, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Color.b
@@ -258,6 +270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2650733609882280411}
   playerMovement: {fileID: 6146282596375825249}
+  isGhost: 0
+  ghostMovment: {fileID: 0}
 --- !u!4 &4110716381185479864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2284091129994517033}
   - component: {fileID: 7182429565218289107}
+  - component: {fileID: 359182381983922855}
   m_Layer: 0
   m_Name: LevelMannager
   m_TagString: Untagged
@@ -44,7 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206d0ad27ff2a4c45abab75fa274dd61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  sceneIndex: 0
   sceneName: SceneTemplate
+  beenWon: 0
   goalList:
   - {fileID: 0}
   - {fileID: 0}
@@ -52,7 +56,23 @@ MonoBehaviour:
   Ghost: {fileID: 0}
   Skeleton: {fileID: 0}
   Body: {fileID: 0}
+  isSkeletonActive: 1
+  isBodyActive: 1
   ghostMovement: {fileID: 0}
   skeletonMovement: {fileID: 0}
   bodyMovement: {fileID: 0}
-  goalsWon: 0
+  endScreenCanvas: {fileID: 0}
+  uiCanvas: {fileID: 0}
+  activePlayerButtonList: []
+--- !u!114 &359182381983922855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148607787771164700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6f548a081a374e936e157ab238ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

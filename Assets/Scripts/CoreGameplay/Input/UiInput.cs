@@ -4,21 +4,24 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using System;
 
-public class UiInput : MonoBehaviour
+namespace uiInputScript
 {
-    public delegate void uiHandlerDelegate();
-    public event uiHandlerDelegate OnEsc;
-    
-    
-    void Start()
+    public class UiInput : MonoBehaviour
     {
+        public delegate void uiHandlerDelegate();
+        public event uiHandlerDelegate OnEsc;
 
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        private void CheckEsc()
         {
+            OnEsc?.Invoke();
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CheckEsc();
+            }
         }
     }
 }

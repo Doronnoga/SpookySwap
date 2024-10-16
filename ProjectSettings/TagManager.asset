@@ -16,6 +16,7 @@ TagManager:
   - Box
   - Wind
   - Lever
+  - UI
   layers:
   - Default
   - TransparentFX

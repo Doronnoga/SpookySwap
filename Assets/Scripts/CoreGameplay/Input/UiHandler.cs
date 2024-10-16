@@ -8,7 +8,7 @@ public class UiHandler : MonoBehaviour
 {
 
     [SerializeField]
-    private bool isOpen = false;
+    private bool isOpen = true;
     [SerializeField]
     private UiInput ui;
     [SerializeField]
@@ -23,18 +23,18 @@ public class UiHandler : MonoBehaviour
     {
         if (isOpen) 
         { 
-            openUI();
+            closeUI();
         }
         else 
         { 
-            closeUI();
+            openUI();
         }
     }
 
     private void openUI()
     {
         Debug.Log("Esc, open ui");
-        canvasGroup.alpha = 100.0f;
+        canvasGroup.alpha = 1.0f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
         isOpen = true;

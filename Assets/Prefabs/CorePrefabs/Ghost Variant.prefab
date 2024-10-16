@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 2745894337583385582, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4f9732f7e0fe028479c1d7da3e7e08e7, type: 2}
+      objectReference: {fileID: 2100000, guid: b723f81f440998d42a4d4b393cac870c, type: 2}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.33
@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: UVModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: NoiseModule.enabled
@@ -221,11 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
+      value: 0.7278662
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.008547783
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar

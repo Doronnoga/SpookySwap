@@ -28,6 +28,7 @@ public class AnimatorController : MonoBehaviour
             playerMovement.OnJump += MoveJump;
             playerMovement.OnStop += StopMovment;
             playerMovement.OnPush += PushMovment;
+            playerMovement.OnStopPull += StopPushMovment;
             playerMovement.OnSwitch += OnSwitchingPlayer;
 
             if (isGhost)
@@ -59,6 +60,13 @@ public class AnimatorController : MonoBehaviour
     {
         animator.SetBool("Push", true);
     }
+
+    private void StopPushMovment()
+    {
+        animator.SetBool("Push", false);
+        animator.SetBool("Pull", false);
+    }
+
 
     private void OnSwitchingPlayer() 
     {

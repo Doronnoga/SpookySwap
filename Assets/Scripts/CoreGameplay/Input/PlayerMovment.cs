@@ -21,7 +21,68 @@ namespace PlayerMovementScript
         public event PlayerActionEvent OnStop;
         public event PlayerActionEvent OnJump;
         public event PlayerActionEvent OnPush;
+        public event PlayerActionEvent OnStopPull;
         public event PlayerActionEvent OnSwitch;
+
+        // New vars for push/pull
+        protected GameObject box;
+        protected Vector2 interactionOffset;
+        [SerializeField]
+        protected float interactionDistance = 5f;
+        [SerializeField]
+        public LayerMask boxMask;
+        protected FixedJoint2D currentJoint = null;
+        protected bool facingRight = true; // Track player orientation
+
+        protected void pushAndPull()
+        {
+            // Update facing direction
+            if (moveDirection.x > 0)
+                facingRight = true;
+            else if (moveDirection.x < 0)
+                facingRight = false;
+            Vector2 direction = facingRight ? Vector2.right : Vector2.left;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, interactionDistance, boxMask);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("KeyIsDown");
+                if (hit.collider != null && hit.collider.CompareTag("Pushable"))
+                {
+                    GameObject box = hit.collider.gameObject;
+                    Rigidbody2D boxRb = box.GetComponent<Rigidbody2D>();
+                    if (boxRb != null)
+                    {
+                        // Check if a joint already exists
+                        if (currentJoint == null)
+                        {
+                            // Add FixedJoint2D if it doesn't exist
+                            currentJoint = gameObject.AddComponent<FixedJoint2D>();
+                            currentJoint.connectedBody = boxRb;
+                            currentJoint.enableCollision = true;
+                            OnPush?.Invoke();
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Interactable object missing Rigidbody2D.");
+                    }
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                // Remove the joint when E is released
+                if (currentJoint != null)
+                {
+                    Debug.Log("KeyIsUp");
+                    Destroy(currentJoint);
+                    currentJoint.connectedBody = null;
+                    currentJoint.enableCollision = false;
+                    OnStopPull?.Invoke();
+                }
+            }
+        }
 
         protected virtual void Awake()
         {

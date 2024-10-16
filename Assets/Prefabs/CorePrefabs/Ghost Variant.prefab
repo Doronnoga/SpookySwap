@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: 2745894337583385582, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 4f9732f7e0fe028479c1d7da3e7e08e7, type: 2}
     - target: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.33
@@ -156,8 +156,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: ShapeModule.type
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: NoiseModule.enabled
@@ -231,6 +239,10 @@ PrefabInstance:
       propertyPath: InitialModule.startRotation.minScalar
       value: 0.7853981
       objectReference: {fileID: 0}
+    - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: f67e6c8db9bde5b4fba5fa5c3fa9bbdf, type: 3}
     - target: {fileID: 5595003677903655158, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 0.1
@@ -376,12 +388,12 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.56
-  m_Color: {r: 0.3075471, g: 1, b: 0.35643494, a: 1}
-  m_Intensity: 1.32
-  m_LightVolumeIntensity: 0.18
+  m_FalloffIntensity: 0.412
+  m_Color: {r: 0.6622641, g: 1, b: 0.68706954, a: 1}
+  m_Intensity: 2.43
+  m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 512a0c6200000000b58dff1b73af3cfe
+  m_ApplyToSortingLayers: 512a0c620000000073af3cfeb58dff1b
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -549,6 +561,22 @@ PrefabInstance:
     - target: {fileID: 1688073512179171791, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
       propertyPath: m_SortingLayerID
       value: 469732789
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280886352231541875, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_Color.a
+      value: 0.8392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280886352231541875, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5302287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280886352231541875, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6226415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280886352231541875, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4452474
       objectReference: {fileID: 0}
     - target: {fileID: 4280886352231541875, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
       propertyPath: m_SortingLayer

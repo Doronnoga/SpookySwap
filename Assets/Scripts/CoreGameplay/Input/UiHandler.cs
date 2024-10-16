@@ -17,19 +17,35 @@ public class UiHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ui.OnEsc += openUI;
+        ui.OnEsc += ToggleUI;
     }
-
-    private void openUI() 
-    {
-        Debug.Log("Esc, open ui");
-    }
-    // Update is called once per frame
-    void Update()
+    private void ToggleUI() 
     {
         if (isOpen) 
-        {
-            
+        { 
+            openUI();
+        }
+        else 
+        { 
+            closeUI();
         }
     }
+
+    private void openUI()
+    {
+        Debug.Log("Esc, open ui");
+        canvasGroup.alpha = 100.0f;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+        isOpen = true;
+    }
+    private void closeUI()
+    {
+        Debug.Log("Esc, close ui");
+        canvasGroup.alpha = 0.0f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        isOpen = false;
+    }
 }
+    

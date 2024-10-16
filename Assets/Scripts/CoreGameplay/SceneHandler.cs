@@ -9,6 +9,7 @@ namespace SceneHandlerScript
     {
         [SerializeField]
         private int sceneIndex;
+        [SerializeField]
         private int currentScene;
         [SerializeField]
         private int nextScene;

@@ -94,7 +94,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Ghost_Eye_R
+  - name: Eye_R
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -417,7 +417,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 201, y: -1781}
     spritePosition: {x: 1183, y: 1785}
-  - name: Ghost_Eye_L
+  - name: Eye_L
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1701,8 +1701,8 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Ghost_Eye_R
-    spriteName: Ghost_Eye_R
+  - name: Eye_R
+    spriteName: Eye_R
     isGroup: 0
     parentIndex: -1
     spriteID: 80b0d1c3ca3515644b7d733f3373b0c3
@@ -1711,8 +1711,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Ghost_Eye_L
-    spriteName: Ghost_Eye_L
+  - name: Eye_L
+    spriteName: Eye_L
     isGroup: 0
     parentIndex: -1
     spriteID: cd89ff91b6442bf45b5e6234cf7807fb

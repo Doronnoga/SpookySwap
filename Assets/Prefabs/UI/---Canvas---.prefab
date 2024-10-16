@@ -110,6 +110,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 362682939142699464}
     m_Modifications:
+    - target: {fileID: 401533182257874543, guid: 04d7b316c30558a44b62c583d3695d4c, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 984367364189238261, guid: 04d7b316c30558a44b62c583d3695d4c, type: 3}
       propertyPath: m_Name
       value: LevelEndPopUp
@@ -117,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 984367364189238261, guid: 04d7b316c30558a44b62c583d3695d4c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539143020016211371, guid: 04d7b316c30558a44b62c583d3695d4c, type: 3}
+      propertyPath: m_text
+      value: Level Complete
       objectReference: {fileID: 0}
     - target: {fileID: 8346472235533911811, guid: 04d7b316c30558a44b62c583d3695d4c, type: 3}
       propertyPath: m_Pivot.x

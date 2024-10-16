@@ -62,7 +62,6 @@ public class AnimatorController : MonoBehaviour
 
     private void OnSwitchingPlayer() 
     {
-        Debug.Log("Switched");
         animator.SetTrigger("Switched");
     }
 

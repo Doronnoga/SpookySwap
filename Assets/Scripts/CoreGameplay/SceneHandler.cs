@@ -21,30 +21,25 @@ namespace SceneHandlerScript
         }
         public void goToStartScene()
         {
-            Debug.Log("went to starts scene");
             SceneManager.LoadScene(0);
         }
 
         public void reloadScene()
         {
-            Debug.Log("reloaded scene");
             SceneManager.LoadScene(currentScene);
         }       
 
         public void loadSpecigicLevel() 
         {
-            Debug.Log($"went to specific scene {sceneIndex}");
             SceneManager.LoadScene(sceneIndex);
         }
 
         public void closeApplication() 
         {
-            Debug.Log("Exit");
             Application.Quit();
         }
         public void loadNextScene() 
         {
-            Debug.Log($"went to next scene {nextScene}");
             SceneManager.LoadScene(nextScene);
         }
     }

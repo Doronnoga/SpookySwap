@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class DoNotDestroyOnLoad : MonoBehaviour
 {
-    
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    } 
+    private static DoNotDestroyOnLoad instance;
 
-  
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }

@@ -33,7 +33,6 @@ public class UiHandler : MonoBehaviour
 
     private void openUI()
     {
-        Debug.Log("Esc, open ui");
         canvasGroup.alpha = 1.0f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
@@ -41,7 +40,6 @@ public class UiHandler : MonoBehaviour
     }
     private void closeUI()
     {
-        Debug.Log("Esc, close ui");
         canvasGroup.alpha = 0.0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;

@@ -371,6 +371,10 @@ MonoBehaviour:
   rb: {fileID: 7118204497347211072}
   moveSpeed: 12
   jumpForce: 0
+  interactionDistance: 5
+  boxMask:
+    serializedVersion: 2
+    m_Bits: 0
   acceleration: 1
   deceleration: 0.5
 --- !u!114 &1488312961869571896
@@ -482,6 +486,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: -7846272743465275216, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7846272743465275216, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -7846272743465275216, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 469732789
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.09
@@ -547,6 +563,18 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -5906491528154033531, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 469732789
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683155684169144924, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683155684169144924, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683155684169144924, guid: 83956dbc441334142a1c0775ddca05ec, type: 3}
       propertyPath: m_SortingLayerID
       value: 469732789
       objectReference: {fileID: 0}

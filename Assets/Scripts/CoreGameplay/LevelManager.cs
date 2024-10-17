@@ -11,20 +11,15 @@ namespace LevelManagerClass
 {
     public class LevelManager : MonoBehaviour
     {
-        [Header("Scene name\n")]
+        [Header("Camera\n")]
         [SerializeField] 
         private CinemachineVirtualCamera virtualCamera;
-        [SerializeField]
-        private int sceneIndex;//for game manager
-        [SerializeField]
-        public string sceneName = "";//name of connected scene
-        [SerializeField]
+
         public bool beenWon = false;
 
         [Header("GOALS\n")]
         [SerializeField]
         List<Goal> goalList = new List<Goal>();
-
         int goalsWon = 0;
 
         [Header("PLAYERS\n")]
@@ -34,6 +29,8 @@ namespace LevelManagerClass
         private GameObject Skeleton;
         [SerializeField]
         private GameObject Body;
+        private GameObject lastActivePlayer;
+
 
         [Header("PLAYERS ACTIVITION scripts\n")] //checks if all the players should be in this scene
         [SerializeField]
@@ -83,6 +80,9 @@ namespace LevelManagerClass
 
         private void ActivatePlayer(GameObject player)
         {
+            //checkwhowasactive
+            lastActivePlayer = player;
+            
             //turn all off if not null
             if (ghostMovement != null) 
             { 
@@ -134,6 +134,13 @@ namespace LevelManagerClass
 
         private void checkInput()
         {
+            if (lastActivePlayer != null)
+            {
+                if (lastActivePlayer.GetComponent<Animator>().GetBool("Move"))
+                {
+                    lastActivePlayer.GetComponent<Animator>().SetBool("Move", false);
+                }
+            }
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);

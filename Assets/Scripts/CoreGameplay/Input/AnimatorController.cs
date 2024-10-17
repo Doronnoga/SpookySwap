@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LevelManagerClass;
-using static GhostMovementScript.GhostMovement;
 using GhostMovementScript;
 
 public class AnimatorController : MonoBehaviour
@@ -70,7 +69,7 @@ public class AnimatorController : MonoBehaviour
 
     private void OnSwitchingPlayer() 
     {
+        animator.SetBool("Move" , false);
         animator.SetTrigger("Switched");
     }
-
 }

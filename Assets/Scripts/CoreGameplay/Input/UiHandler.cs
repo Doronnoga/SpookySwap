@@ -1,49 +1,60 @@
-using System.Collections.Generic;
-using UnityEngine.UIElements;
 using System.Collections;
 using uiInputScript;
 using UnityEngine;
 
 public class UiHandler : MonoBehaviour
 {
-
     [SerializeField]
     private bool isOpen = true;
     [SerializeField]
     private UiInput ui;
     [SerializeField]
     private CanvasGroup canvasGroup;
+    [SerializeField]
+    private float lerpDuration = 0.5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         ui.OnEsc += ToggleUI;
     }
-    private void ToggleUI() 
+
+    private void ToggleUI()
     {
-        if (isOpen) 
-        { 
+        if (isOpen)
+        {
+            StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 0, lerpDuration)); // Fade out
             closeUI();
         }
-        else 
-        { 
+        else
+        {
             openUI();
+            StartCoroutine(FadeCanvasGroup(canvasGroup, canvasGroup.alpha, 1, lerpDuration)); // Fade in
         }
     }
 
     private void openUI()
     {
-        canvasGroup.alpha = 1.0f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
         isOpen = true;
     }
+
     private void closeUI()
     {
-        canvasGroup.alpha = 0.0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
         isOpen = false;
     }
+
+    private IEnumerator FadeCanvasGroup(CanvasGroup canvas, float start, float end, float duration)
+    {
+        float timeElapsed = 0;
+        while (timeElapsed < duration)
+        {
+            canvas.alpha = Mathf.Lerp(start, end, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        canvas.alpha = end;
+    }
 }
-    

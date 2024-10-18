@@ -12,14 +12,11 @@ namespace UICollectibleClass
         [Header("collectible")]
         private LevelCollectible levelCollectible;
         [SerializeField]
-        private bool iscollected = false;
-        [SerializeField]
         GameObject collectibleIcon;
 
 
         void Start()
         {
-            iscollected = false;
             collectibleIcon.SetActive(false);
 
             if (levelCollectible != null)//on starts subscribe methods to event

@@ -48,8 +48,6 @@ namespace LevelManagerClass
 
         [Header("Ui CANVAS and BUTTONS\n")]
         [SerializeField]
-        public GameObject endScreenCanvas;
-        [SerializeField]
         public GameObject uiCanvas;
         [SerializeField]
         List<Button> activePlayerButtonList = new List<Button>();
@@ -85,22 +83,22 @@ namespace LevelManagerClass
         {
             //checkwhowasactive
             lastActivePlayer = player;
-            
+
             //turn all off if not null
-            if (ghostMovement != null) 
-            { 
-              ghostMovement.enabled = false;
+            if (ghostMovement != null)
+            {
+                ghostMovement.enabled = false;
             }
-            if (bodyMovement != null) 
-            { 
+            if (bodyMovement != null)
+            {
                 bodyMovement.enabled = false;
             }
-            if (skeletonMovement != null) 
-            { 
+            if (skeletonMovement != null)
+            {
                 skeletonMovement.enabled = false;
             }
 
-            for (int i = 0; i < activePlayerButtonList.Count; i++) 
+            for (int i = 0; i < activePlayerButtonList.Count; i++)
             {
                 activePlayerButtonList[i].interactable = false;
             }
@@ -121,6 +119,7 @@ namespace LevelManagerClass
                 skeletonMovement.enabled = true;
                 activePlayerButtonList[1].interactable = true;
             }
+            playUISound?.Invoke();
         }
 
         private void disablePlayers() 

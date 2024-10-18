@@ -54,6 +54,9 @@ namespace LevelManagerClass
         [SerializeField]
         List<Button> activePlayerButtonList = new List<Button>();
 
+        public delegate void LevelManagerDelegate();
+        public event LevelManagerDelegate levelWon;
+        public event LevelManagerDelegate playUISound;
         public void checkIfNull()
         {
             if (virtualCamera == null)
@@ -176,9 +179,10 @@ namespace LevelManagerClass
             {
                 if (!beenWon)
                 {
+                    Debug.Log("Levbel is won");
+                    levelWon?.Invoke();
                     beenWon = true;
                     disablePlayers();
-                    endScreenCanvas.SetActive(true);
                 }
             }
             else
@@ -201,7 +205,6 @@ namespace LevelManagerClass
 
         void Start ()
         {
-            endScreenCanvas.SetActive(false);
             for (int i = 0; i < goalList.Count; i++) 
             {
                goalList[i].OnGoalEnter += checkForWin;

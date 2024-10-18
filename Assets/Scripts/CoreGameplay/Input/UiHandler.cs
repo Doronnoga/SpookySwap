@@ -1,3 +1,4 @@
+using LevelManagerClass;
 using System.Collections;
 using uiInputScript;
 using UnityEngine;
@@ -5,17 +6,30 @@ using UnityEngine;
 public class UiHandler : MonoBehaviour
 {
     [SerializeField]
-    private bool isOpen = true;
+    private bool isOpen = false;
     [SerializeField]
     private UiInput ui;
+    [SerializeField] 
+    private LevelManager LevelManagerAction;
     [SerializeField]
     private CanvasGroup canvasGroup;
     [SerializeField]
     private float lerpDuration = 0.5f;
+    [SerializeField]
+    private bool EndLevelUI = true;
 
     void Start()
     {
-        ui.OnEsc += ToggleUI;
+        if (EndLevelUI)
+        {
+            Debug.Log("endlevelui action");
+            LevelManagerAction.levelWon += ToggleUI;
+        }
+        else
+        {
+            Debug.Log("on esc action");
+            ui.OnEsc += ToggleUI;
+        }
     }
 
     private void ToggleUI()

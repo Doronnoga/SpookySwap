@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6253193232225339033, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
       propertyPath: m_FalloffIntensity
-      value: 0.391
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7056406388887221893, guid: b8d9ab04fe9b3ae4280ada707c281d74, type: 3}
       propertyPath: MaxDistance

@@ -141,22 +141,36 @@ namespace LevelManagerClass
                 if (lastActivePlayer.GetComponent<Animator>().GetBool("Move"))
                 {
                     lastActivePlayer.GetComponent<Animator>().SetBool("Move", false);
-                }
+                }// no more running on transfer
             }
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);
                 changeCameraTarget(Ghost.transform);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) && isSkeletonActive) // Switch to Skeleton
+            else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) // Switch to Skeleton
             {
-                ActivatePlayer(Skeleton);
-                changeCameraTarget(Skeleton.transform);
+                if (isSkeletonActive)
+                {
+                    ActivatePlayer(Skeleton);
+                    changeCameraTarget(Skeleton.transform);
+                }
+                else
+                {
+                    Debug.Log("SkeletonIsn'tactive");
+                }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3) && isBodyActive) // Switch to Body
             {
-                ActivatePlayer(Body);
-                changeCameraTarget(Body.transform);
+                if (isBodyActive)
+                {
+                    ActivatePlayer(Body);
+                    changeCameraTarget(Body.transform);
+                }
+                else 
+                { 
+                    Debug.Log("BodyIsntActive"); 
+                }
             }
         }
 

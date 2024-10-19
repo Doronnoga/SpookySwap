@@ -160,6 +160,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5853419885516045997}
+    - targetCorrespondingSourceObject: {fileID: 3980752339463508150, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 596302685098072715}
   m_SourcePrefab: {fileID: 100100000, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
 --- !u!1 &2338580058091931832 stripped
 GameObject:
@@ -272,6 +275,27 @@ MonoBehaviour:
   playerMovement: {fileID: 6146282596375825249}
   isGhost: 0
   ghostMovment: {fileID: 0}
+--- !u!114 &596302685098072715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2338580058091931832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839eb2daeb7a26242806608b33108445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 6146282596375825249}
+  isGhost: 0
+  ghostMovment: {fileID: 0}
+  audioSource: {fileID: 8343451101475906208}
+  idle: {fileID: 0}
+  move: {fileID: 0}
+  jump: {fileID: 0}
+  push: {fileID: 0}
+  possessed: {fileID: 8300000, guid: 1ad8eefe80adc7441876bdbc9c095de7, type: 3}
 --- !u!4 &4110716381185479864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
@@ -280,6 +304,11 @@ Transform:
 --- !u!50 &7979194424066382278 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8787081462985245128, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+  m_PrefabInstance: {fileID: 1678214306936051726}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8343451101475906208 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7242865271331289774, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
   m_PrefabInstance: {fileID: 1678214306936051726}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4591727803509548262

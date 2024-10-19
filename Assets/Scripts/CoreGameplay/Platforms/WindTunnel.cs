@@ -18,6 +18,9 @@ namespace WindTunnelScript
         [SerializeField]
         private Button button;
 
+        [SerializeField]
+        private bool onePressButton = true;
+
         private Collider2D windCollider;
         private ParticleSystem windParticles;
 
@@ -31,7 +34,10 @@ namespace WindTunnelScript
             if (button != null)
             {
                 button.OnButtonPressed += deactivateWind;
-                button.OnButtonReleased += activateWind;
+                if (onePressButton)
+                {
+                    button.OnButtonReleased += activateWind;
+                }
             }
         }
 
@@ -51,12 +57,12 @@ namespace WindTunnelScript
             }
         }
 
-        //private void OnTriggerExit2D(Collider2D collision)
-        //{
-        //    if (isActivated && collision.CompareTag(targetTag))
-        //    {
-        //    }
-        //}
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (isActivated && collision.CompareTag(targetTag))
+            {
+            }
+        }
 
         private void ApplyWindForce(Collider2D collision)
         {

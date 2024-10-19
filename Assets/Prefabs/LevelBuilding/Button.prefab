@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386481776229709843}
   - component: {fileID: 3177392859644391397}
+  - component: {fileID: 5672649490053903606}
   m_Layer: 0
   m_Name: StatueWings
   m_TagString: Untagged
@@ -84,6 +85,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5672649490053903606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801926977883681484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 512a0c6200000000b58dff1b73af3cfe19c27fe4
+  m_ShapePath:
+  - {x: -2.271021, y: -2.7287848, z: 0}
+  - {x: -1.3798231, y: -2.4139886, z: 0}
+  - {x: -1.6392709, y: -2.055943, z: 0}
+  - {x: -2.155754, y: -2.0816731, z: 0}
+  - {x: -3.6575024, y: -1.933765, z: 0}
+  - {x: -3.1112177, y: -1.1435306, z: 0}
+  - {x: -1.8069639, y: -0.12372762, z: 0}
+  - {x: -2.6350405, y: 1.3547353, z: 0}
+  - {x: -2.2349122, y: 2.4138088, z: 0}
+  - {x: -1.2843361, y: 2.9817882, z: 0}
+  - {x: -1.2059394, y: 2.704113, z: 0}
+  - {x: -1.7008996, y: 2.012531, z: 0}
+  - {x: -1.1336567, y: 1.3192241, z: 0}
+  - {x: -0.037356507, y: 1.753241, z: 0}
+  - {x: 1.0621482, y: 1.1981633, z: 0}
+  - {x: 1.7389568, y: 1.5620999, z: 0}
+  - {x: 1.3967593, y: 2.5490623, z: 0}
+  - {x: 1.9612302, y: 2.7099738, z: 0}
+  - {x: 2.4016924, y: 2.2575283, z: 0}
+  - {x: 2.6122544, y: 1.0730382, z: 0}
+  - {x: 2.2755957, y: 0.35156274, z: 0}
+  - {x: 1.7602795, y: -0.033838667, z: 0}
+  - {x: 2.9251556, y: -0.83578503, z: 0}
+  - {x: 3.6872044, y: -1.8650644, z: 0}
+  - {x: 2.6706004, y: -1.9838611, z: 0}
+  - {x: 1.3628503, y: -1.9246511, z: 0}
+  - {x: 1.461311, y: -2.41859, z: 0}
+  - {x: 1.67262, y: -2.8668582, z: 0}
+  m_ShapePathHash: 1943153422
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -217698
+  m_LocalBounds:
+    m_Center: {x: 0.014850855, y: 0.057464838, z: 0}
+    m_Extent: {x: 3.6723533, y: 2.924323, z: 0}
 --- !u!1 &5329696795740327932
 GameObject:
   m_ObjectHideFlags: 0

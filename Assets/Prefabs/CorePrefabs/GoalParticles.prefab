@@ -4855,7 +4855,7 @@ GameObject:
   - component: {fileID: 4546659961501373636}
   - component: {fileID: 1779612324530314995}
   m_Layer: 0
-  m_Name: SkeletonGoal
+  m_Name: GoalParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

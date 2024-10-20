@@ -17,6 +17,9 @@ TagManager:
   - Wind
   - Lever
   - UI
+  - FxTemporaire
+  - Hurt
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -33,8 +36,8 @@ TagManager:
   - Collectible
   - Wind
   - Lever
-  - 
-  - 
+  - CheckPoint
+  - Hurt
   - 
   - 
   - 

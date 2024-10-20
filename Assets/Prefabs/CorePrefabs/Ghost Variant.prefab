@@ -369,6 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2467814833109763941, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+    - {fileID: 4484772930316751855, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3334358903505177782, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
@@ -523,7 +524,6 @@ MonoBehaviour:
   isGhost: 1
   ghostMovment: {fileID: 1734907605905709432}
   audioSource: {fileID: 9203913812592743462}
-  idle: {fileID: 8300000, guid: ab3753232ef5d5a458a2cfb6965f6783, type: 3}
   move: {fileID: 0}
   jump: {fileID: 0}
   push: {fileID: 0}

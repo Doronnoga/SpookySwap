@@ -72,4 +72,5 @@ public class AnimatorController : MonoBehaviour
         animator.SetBool("Move" , false);
         animator.SetTrigger("Switched");
     }
+
 }

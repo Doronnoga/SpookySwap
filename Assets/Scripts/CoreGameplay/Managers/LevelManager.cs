@@ -147,6 +147,8 @@ namespace LevelManagerClass
             {
                 ActivatePlayer(Ghost);
                 changeCameraTarget(Ghost.transform);
+                Skeleton.GetComponent<Animator>().SetTrigger("Unswitched");
+                Body.GetComponent<Animator>().SetTrigger("Unswitched");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2)) // Switch to Skeleton
             {
@@ -154,9 +156,10 @@ namespace LevelManagerClass
                 {
                     ActivatePlayer(Skeleton);
                     changeCameraTarget(Skeleton.transform);
+                    Body.GetComponent<Animator>().SetTrigger("Unswitched");
                 }
                 else
-                {
+                {                  
                     Debug.Log("SkeletonIsn'tactive");
                 }
             }
@@ -166,9 +169,10 @@ namespace LevelManagerClass
                 {
                     ActivatePlayer(Body);
                     changeCameraTarget(Body.transform);
+                    Skeleton.GetComponent<Animator>().SetTrigger("Unswitched");
                 }
                 else 
-                { 
+                {
                     Debug.Log("BodyIsntActive"); 
                 }
             }

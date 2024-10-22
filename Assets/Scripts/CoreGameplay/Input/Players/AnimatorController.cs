@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LevelManagerClass;
 using GhostMovementScript;
+using UnityEngine.SceneManagement;
 
 public class AnimatorController : MonoBehaviour
 {

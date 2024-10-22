@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace PlayerMovementScript
 {
@@ -109,6 +111,12 @@ namespace PlayerMovementScript
             if (rb == null)
             {
                 Debug.LogError("Rigidbody2D component missing from this GameObject.");
+            }
+
+            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking of it's the credit scene
+            {
+                Animator animator = GetComponent<Animator>();
+                animator.Play("Body_Possessed_Idle");
             }
         }
 

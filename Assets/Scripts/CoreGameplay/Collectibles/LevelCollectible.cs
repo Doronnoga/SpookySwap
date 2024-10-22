@@ -14,6 +14,7 @@ namespace CollectibleClass
         protected float time;
         [SerializeField]
         Animator animator;
+        public bool collected = false;
 
 
         public delegate void CollectCollectible(); //declare a delegate type
@@ -35,6 +36,7 @@ namespace CollectibleClass
         {
             Debug.Log("Collectible Destroyed");
             Destroy(gameObject, time);//die
+            collected = true;//for goal porpuse
         }
     }
 }

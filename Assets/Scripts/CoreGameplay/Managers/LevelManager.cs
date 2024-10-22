@@ -6,6 +6,8 @@ using PlayerMovementScript;
 using UnityEngine.UI;
 using Cinemachine;
 using CollectibleClass;
+using UnityEngine.SceneManagement;
+using UnityEditor;
 
 namespace LevelManagerClass
 {
@@ -51,6 +53,10 @@ namespace LevelManagerClass
         public GameObject uiCanvas;
         [SerializeField]
         List<Button> activePlayerButtonList = new List<Button>();
+
+        [Header("Collectible\n")]
+        [SerializeField]
+        public LevelCollectible levelCollectible;
 
         public delegate void LevelManagerDelegate();
         public event LevelManagerDelegate levelWon;
@@ -192,14 +198,27 @@ namespace LevelManagerClass
             }
 
             // Check if all goals have been won
-            if (goalsWon == goalList.Count)
+            if (goalsWon == goalList.Count && (levelCollectible == null || levelCollectible.collected)) //if there are collectibles in scene & if they were collected
             {
                 if (!beenWon)
                 {
-                    Debug.Log("Levbel is won");
-                    levelWon?.Invoke();
-                    beenWon = true;
-                    disablePlayers();
+                    if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking if it's the goal of the last scene
+                    {
+                        SceneManager.LoadScene(0);
+                    }
+
+                    else if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 2) //checking if it's the goal of before the last scene
+                    {
+                        //this is where the camera supposed to zoom out to show the three character and do the morphing scene
+                    }
+
+                    else
+                    {
+                        Debug.Log("Levbel is won");
+                        levelWon?.Invoke();
+                        beenWon = true;
+                        disablePlayers();
+                    }
                 }
             }
             else
@@ -227,7 +246,15 @@ namespace LevelManagerClass
                goalList[i].OnGoalEnter += checkForWin;
             }
             checkIfNull();
-            ActivatePlayer(Ghost);
+            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking of it's the credit scene
+            {
+                ActivatePlayer(Body);
+                changeCameraTarget(Body.transform);
+            }
+            else
+            {
+                ActivatePlayer(Ghost);
+            }
         }
 
         private void Update ()

@@ -209,6 +209,7 @@ namespace LevelManagerClass
 
                     else if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 2) //checking if it's the goal of before the last scene
                     {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                         //this is where the camera supposed to zoom out to show the three character and do the morphing scene
                     }
 

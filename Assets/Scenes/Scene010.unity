@@ -694,7 +694,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Game Designer <color=green>
 
-    Vic [last name]  </color>'
+    Vick Ramon  </color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 281da4fd893b4574a9238ada30f8688b, type: 2}
   m_sharedMaterial: {fileID: 661637237597947525, guid: 281da4fd893b4574a9238ada30f8688b, type: 2}

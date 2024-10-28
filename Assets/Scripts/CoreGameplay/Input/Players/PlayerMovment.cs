@@ -113,10 +113,11 @@ namespace PlayerMovementScript
                 Debug.LogError("Rigidbody2D component missing from this GameObject.");
             }
 
-            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking of it's the credit scene
+            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking if it's the credit scene
             {
+
                 Animator animator = GetComponent<Animator>();
-                animator.Play("Body_Possessed_Idle");
+                animator.Play("Human_Spawn_Animation");
             }
         }
 

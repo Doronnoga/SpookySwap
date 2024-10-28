@@ -8,6 +8,7 @@ using Cinemachine;
 using CollectibleClass;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.Playables;
 
 namespace LevelManagerClass
 {
@@ -16,6 +17,8 @@ namespace LevelManagerClass
         [Header("Camera\n")]
         [SerializeField] 
         private CinemachineVirtualCamera virtualCamera;
+        [SerializeField]
+        public Timeline timeline;
 
         public bool beenWon = false;
 
@@ -209,8 +212,8 @@ namespace LevelManagerClass
 
                     else if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 2) //checking if it's the goal of before the last scene
                     {
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                        //this is where the camera supposed to zoom out to show the three character and do the morphing scene
+                        disablePlayers();
+                        timeline.PlayTimeline();         
                     }
 
                     else

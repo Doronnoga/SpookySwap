@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 766775435931312912, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048371937957710896, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2467814833109763941, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: jumpForce
       value: 10
@@ -102,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7990308820791317442, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7990308820791317442, guid: ddb2581851a36004eae3557da22d88ba, type: 3}
       propertyPath: m_Material
@@ -364,11 +372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 362387911145295496, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9756818
+      value: 0.97568184
       objectReference: {fileID: 0}
     - target: {fileID: 362387911145295496, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.21919198
+      value: 0.21919183
       objectReference: {fileID: 0}
     - target: {fileID: 420453764918463205, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_Sprite
@@ -412,11 +420,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1068954408453327227, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99873257
+      value: 0.9987321
       objectReference: {fileID: 0}
     - target: {fileID: 1068954408453327227, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.050331585
+      value: 0.05034156
       objectReference: {fileID: 0}
     - target: {fileID: 1093634944515196744, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_Layer
@@ -588,11 +596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348874174422570414, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98149127
+      value: 0.9814923
       objectReference: {fileID: 0}
     - target: {fileID: 4348874174422570414, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.19150737
+      value: -0.1915021
       objectReference: {fileID: 0}
     - target: {fileID: 4458782185844668801, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_Layer
@@ -616,11 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4669664423004566874, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.06310197
+      value: -0.063106984
       objectReference: {fileID: 0}
     - target: {fileID: 4669664423004566874, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.9980071
+      value: -0.9980068
       objectReference: {fileID: 0}
     - target: {fileID: 4815755645539001069, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_Layer
@@ -752,11 +760,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683596281775348266, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.24536227
+      value: 0.24535963
       objectReference: {fileID: 0}
     - target: {fileID: 6683596281775348266, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.9694315
+      value: -0.9694322
       objectReference: {fileID: 0}
     - target: {fileID: 7156272661907318760, guid: 680fd49eeaeef1949a79ca1d3689470c, type: 3}
       propertyPath: m_Layer

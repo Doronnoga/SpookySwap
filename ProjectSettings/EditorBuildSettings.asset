@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/OpeningScene00.unity
     guid: 96682713721941347814a354ff156d41
   - enabled: 1
-    path: Assets/Scenes/TestScenes/NogaTest Scene/NogaScene01.unity
+    path: Assets/Scenes/NogaScene01.unity
     guid: 5e60f8b38afc60740937d4418d4fe1b7
   - enabled: 1
-    path: Assets/Scenes/TestScenes/NogaTest Scene/NogaScene02SkeleTuto.unity
+    path: Assets/Scenes/NogaScene02SkeleTuto.unity
     guid: 6f9ceeeea54923f4dae73e855681e2d3
   - enabled: 1
     path: Assets/Scenes/Scene003.unity

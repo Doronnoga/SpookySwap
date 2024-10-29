@@ -238,7 +238,7 @@ MonoBehaviour:
   isGhost: 0
   ghostMovment: {fileID: 0}
   audioSource: {fileID: 7652668813454379621}
-  move: {fileID: 0}
+  move: {fileID: 8300000, guid: da6a39f85077f48a19b5bd84978ca294, type: 3}
   jump: {fileID: 0}
   push: {fileID: 0}
   possessed: {fileID: 8300000, guid: 1ad8eefe80adc7441876bdbc9c095de7, type: 3}
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.32779744, b: 0.30588233, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 0.18
-  m_LightVolumeIntensityEnabled: 1
+  m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 512a0c6200000000b58dff1b73af3cfe
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -407,6 +407,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9087561384944009917, guid: 0048bace3dba25f4ab47a5af4cd26679, type: 3}
     - target: {fileID: 2567826948882566668, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567826948882566668, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567826948882566668, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567826948882566668, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -550,6 +562,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4698019329650858071, guid: 0048bace3dba25f4ab47a5af4cd26679, type: 3}
+    - target: {fileID: 8178856347214222796, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178856347214222796, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178856347214222796, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8178856347214222796, guid: d2c0bdfbd61950347bfcf4b180c3d52a, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

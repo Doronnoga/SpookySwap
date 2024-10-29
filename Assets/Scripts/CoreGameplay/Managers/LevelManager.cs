@@ -14,7 +14,6 @@ namespace LevelManagerClass
 {
     public class LevelManager : MonoBehaviour
     {
-        
         [SerializeField]
         public Timeline timeline;
 

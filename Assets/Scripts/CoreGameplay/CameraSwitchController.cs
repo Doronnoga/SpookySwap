@@ -10,8 +10,7 @@ public class CameraSwitchController : MonoBehaviour
     [Header("Camera\n")]
     [SerializeField]
     private CinemachineVirtualCamera virtualCamera;
-    [SerializeField]
-    public Timeline timeline;
+   
     [Header("PLAYERS\n")]
     [SerializeField]
     private GameObject Ghost;
@@ -63,7 +62,6 @@ public class CameraSwitchController : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1 && isBodyActive) //checking of it's the credit scene

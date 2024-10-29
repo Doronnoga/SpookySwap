@@ -66,7 +66,7 @@ public class CameraSwitchController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking of it's the credit scene
+        if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1 && isBodyActive) //checking of it's the credit scene
         {
             changeCameraTarget(Body.transform);
         }

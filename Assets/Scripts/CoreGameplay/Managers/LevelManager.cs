@@ -236,7 +236,7 @@ namespace LevelManagerClass
                goalList[i].OnGoalEnter += checkForWin;
             }
             checkIfNull();
-            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking of it's the credit scene
+            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1 && isBodyActive) //checking of it's the credit scene
             {
                 ActivatePlayer(Body);
             }

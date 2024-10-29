@@ -14,9 +14,7 @@ namespace LevelManagerClass
 {
     public class LevelManager : MonoBehaviour
     {
-        [Header("Camera\n")]
-        [SerializeField] 
-        private CinemachineVirtualCamera virtualCamera;
+        
         [SerializeField]
         public Timeline timeline;
 
@@ -66,10 +64,10 @@ namespace LevelManagerClass
         public event LevelManagerDelegate playUISound;
         public void checkIfNull()
         {
-            if (virtualCamera == null)
-            {
-                Debug.LogError("Cinemachine Virtual Camera is not assigned!");
-            }
+            //if (virtualCamera == null)
+            //{
+            //    Debug.LogError("Cinemachine Virtual Camera is not assigned!");
+            //}
             if (goalList.Contains(null))
             {
                 Debug.LogError("THE LEVEL MANAGER IS MISSING A GOAL: please give it a goal.");
@@ -155,7 +153,6 @@ namespace LevelManagerClass
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1)) // Switch to Ghost
             {
                 ActivatePlayer(Ghost);
-                changeCameraTarget(Ghost.transform);
                 Skeleton.GetComponent<Animator>().SetTrigger("Unswitched");
                 Body.GetComponent<Animator>().SetTrigger("Unswitched");
             }
@@ -164,7 +161,6 @@ namespace LevelManagerClass
                 if (isSkeletonActive)
                 {
                     ActivatePlayer(Skeleton);
-                    changeCameraTarget(Skeleton.transform);
                     Body.GetComponent<Animator>().SetTrigger("Unswitched");
                 }
                 else
@@ -177,7 +173,6 @@ namespace LevelManagerClass
                 if (isBodyActive)
                 {
                     ActivatePlayer(Body);
-                    changeCameraTarget(Body.transform);
                     Skeleton.GetComponent<Animator>().SetTrigger("Unswitched");
                 }
                 else 
@@ -234,15 +229,6 @@ namespace LevelManagerClass
             }
         }
 
-        private void changeCameraTarget(Transform targetTransform)
-        {
-            if (virtualCamera != null && targetTransform != null)
-            {
-                virtualCamera.Follow = targetTransform;
-                virtualCamera.LookAt = targetTransform;
-            }
-        }
-
         void Start ()
         {
             for (int i = 0; i < goalList.Count; i++) 
@@ -253,7 +239,6 @@ namespace LevelManagerClass
             if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1) //checking of it's the credit scene
             {
                 ActivatePlayer(Body);
-                changeCameraTarget(Body.transform);
             }
             else
             {
@@ -267,6 +252,6 @@ namespace LevelManagerClass
             {
               checkInput();
             }
-        }//check for input
+        }
     }
 }

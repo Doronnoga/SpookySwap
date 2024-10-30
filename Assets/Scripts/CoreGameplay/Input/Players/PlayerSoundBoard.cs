@@ -29,13 +29,14 @@ public class PlayerSoundBoard : MonoBehaviour
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-
+        
         if (audioSource == null) { Debug.LogError("No Audio Source!"); }
         if (playerMovement == null) { Debug.LogError("No Player movment script!"); }
 
 
         if (playerMovement != null)
         {
+
             playerMovement.OnMove += OnPlayerMove;
             playerMovement.OnJump += MoveJump;
             playerMovement.OnStop += StopMovment;
